@@ -1,0 +1,4 @@
+D:\work\work maged\Lemo\Lemo\Lemo\bin\Lemo.dll
+D:\work\work maged\Lemo\Lemo\Lemo\bin\Lemo.pdb
+D:\work\work maged\Lemo\Lemo\Lemo\obj\Debug\Lemo.dll
+D:\work\work maged\Lemo\Lemo\Lemo\obj\Debug\Lemo.pdb

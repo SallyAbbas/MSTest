@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LimoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="LimoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cars" EntityType="LimoModel.Car" />
+    <EntitySet Name="cities_extended" EntityType="LimoModel.cities_extended" />
+    <EntitySet Name="Cities" EntityType="LimoModel.City" />
+    <EntitySet Name="Companies" EntityType="LimoModel.Company" />
+    <EntitySet Name="CompanyCityPrices" EntityType="LimoModel.CompanyCityPrice" />
+    <EntitySet Name="ContactPersons" EntityType="LimoModel.ContactPerson" />
+    <EntitySet Name="Jobs" EntityType="LimoModel.Job" />
+    <EntitySet Name="States" EntityType="LimoModel.State" />
+    <EntitySet Name="sysdiagrams" EntityType="LimoModel.sysdiagram" />
+    <EntitySet Name="Users" EntityType="LimoModel.User" />
+    <AssociationSet Name="FK_Car_Company" Association="LimoModel.FK_Car_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Job_Car" Association="LimoModel.FK_Job_Car">
+      <End Role="Car" EntitySet="Cars" />
+      <End Role="Job" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cities_extended_State" Association="LimoModel.FK_cities_extended_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="cities_extended" EntitySet="cities_extended" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyCityPrice_cities_extended" Association="LimoModel.FK_CompanyCityPrice_cities_extended">
+      <End Role="cities_extended" EntitySet="cities_extended" />
+      <End Role="CompanyCityPrice" EntitySet="CompanyCityPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_cities_extended" Association="LimoModel.FK_User_cities_extended">
+      <End Role="cities_extended" EntitySet="cities_extended" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State" Association="LimoModel.FK_City_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyCityPrice_Company" Association="LimoModel.FK_CompanyCityPrice_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="CompanyCityPrice" EntitySet="CompanyCityPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactPerson_Company" Association="LimoModel.FK_ContactPerson_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="ContactPerson" EntitySet="ContactPersons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Job_User" Association="LimoModel.FK_Job_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Job" EntitySet="Jobs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="CarID" />
+    </Key>
+    <Property Type="Int32" Name="CarID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CarName" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CompanyID" />
+    <Property Type="Int32" Name="NoPassengers" />
+    <Property Type="String" Name="PhotoName" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Company" Relationship="LimoModel.FK_Car_Company" FromRole="Car" ToRole="Company" />
+    <NavigationProperty Name="Jobs" Relationship="LimoModel.FK_Job_Car" FromRole="Car" ToRole="Job" />
+    <Property Type="Double" Name="PricePerHore" />
+    <Property Type="Double" Name="PricePerMaile" />
+  </EntityType>
+  <EntityType Name="cities_extended">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Type="Int32" Name="CityID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="state_code" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="zip" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="latitude" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="longitude" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="county" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="State" Relationship="LimoModel.FK_cities_extended_State" FromRole="cities_extended" ToRole="State" />
+    <NavigationProperty Name="CompanyCityPrices" Relationship="LimoModel.FK_CompanyCityPrice_cities_extended" FromRole="cities_extended" ToRole="CompanyCityPrice" />
+    <NavigationProperty Name="Users" Relationship="LimoModel.FK_User_cities_extended" FromRole="cities_extended" ToRole="User" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Type="Int32" Name="CityID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="state_code" MaxLength="2" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="State" Relationship="LimoModel.FK_City_State" FromRole="City" ToRole="State" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Type="Int32" Name="CompanyID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CompanyName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CityID" />
+    <Property Type="String" Name="stateName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Address" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ZipCode" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="UserName" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="PricePerHour" />
+    <Property Type="Double" Name="PricePerMile" />
+    <Property Type="String" Name="LimoAPIID" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LimoAPIKey" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsSupportAllState" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="String" Name="Email" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsAvailable" />
+    <Property Type="Double" Name="DistancePerMile" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="imagePath" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsTop" />
+    <NavigationProperty Name="Cars" Relationship="LimoModel.FK_Car_Company" FromRole="Company" ToRole="Car" />
+    <NavigationProperty Name="CompanyCityPrices" Relationship="LimoModel.FK_CompanyCityPrice_Company" FromRole="Company" ToRole="CompanyCityPrice" />
+    <NavigationProperty Name="ContactPersons" Relationship="LimoModel.FK_ContactPerson_Company" FromRole="Company" ToRole="ContactPerson" />
+  </EntityType>
+  <EntityType Name="CompanyCityPrice">
+    <Key>
+      <PropertyRef Name="CompanyCityPriceID" />
+    </Key>
+    <Property Type="Int32" Name="CompanyCityPriceID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CityID" />
+    <Property Type="Int32" Name="CompanyID" />
+    <Property Type="Double" Name="Price" />
+    <Property Type="Boolean" Name="IsActive" />
+    <NavigationProperty Name="cities_extended" Relationship="LimoModel.FK_CompanyCityPrice_cities_extended" FromRole="CompanyCityPrice" ToRole="cities_extended" />
+    <NavigationProperty Name="Company" Relationship="LimoModel.FK_CompanyCityPrice_Company" FromRole="CompanyCityPrice" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="ContactPerson">
+    <Key>
+      <PropertyRef Name="ContactPersonID" />
+    </Key>
+    <Property Type="Int32" Name="ContactPersonID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CompanyID" />
+    <Property Type="String" Name="FirstName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Double" Name="TimeFrom" />
+    <Property Type="Double" Name="TimeTo" />
+    <Property Type="Int32" Name="AvailableDays" />
+    <Property Type="String" Name="Job" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Company" Relationship="LimoModel.FK_ContactPerson_Company" FromRole="ContactPerson" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Type="Int32" Name="JobID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserID" />
+    <Property Type="Int32" Name="CompanyCarID" />
+    <Property Type="String" Name="FromAddress" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ToAddress" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CityID" />
+    <Property Type="Int32" Name="TimeHour" />
+    <Property Type="Int32" Name="TimeMinute" />
+    <Property Type="Double" Name="TotalPrice" />
+    <Property Type="Double" Name="EstimatedFarePrice" />
+    <Property Type="Double" Name="GratuityPrice" />
+    <Property Type="Double" Name="ProcessingFee" />
+    <Property Type="Double" Name="Taxes" />
+    <Property Type="Double" Name="OtherPrice" />
+    <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LimoConfirmNumber" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ComapnyConfirmNum" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Car" Relationship="LimoModel.FK_Job_Car" FromRole="Job" ToRole="Car" />
+    <NavigationProperty Name="User" Relationship="LimoModel.FK_Job_User" FromRole="Job" ToRole="User" />
+    <Property Type="String" Name="FirstName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Mobile" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="JobDate" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="JobTime" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PriceNote" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="state_code" />
+    </Key>
+    <Property Type="String" Name="StateName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="state_code" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="cities_extended" Relationship="LimoModel.FK_cities_extended_State" FromRole="State" ToRole="cities_extended" />
+    <NavigationProperty Name="Cities" Relationship="LimoModel.FK_City_State" FromRole="State" ToRole="City" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="version" />
+    <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Type="Int32" Name="UserID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FirstName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="SatatID" />
+    <Property Type="Int32" Name="CityID" />
+    <Property Type="String" Name="Address" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ZipCode" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="UserName" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cities_extended" Relationship="LimoModel.FK_User_cities_extended" FromRole="User" ToRole="cities_extended" />
+    <NavigationProperty Name="Jobs" Relationship="LimoModel.FK_Job_User" FromRole="User" ToRole="Job" />
+    <Property Type="String" Name="Mobile" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Passwords" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Car_Company">
+    <End Type="LimoModel.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="LimoModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Job_Car">
+    <End Type="LimoModel.Car" Role="Car" Multiplicity="0..1" />
+    <End Type="LimoModel.Job" Role="Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="CarID" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="CompanyCarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cities_extended_State">
+    <End Type="LimoModel.State" Role="State" Multiplicity="1" />
+    <End Type="LimoModel.cities_extended" Role="cities_extended" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="state_code" />
+      </Principal>
+      <Dependent Role="cities_extended">
+        <PropertyRef Name="state_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyCityPrice_cities_extended">
+    <End Type="LimoModel.cities_extended" Role="cities_extended" Multiplicity="0..1" />
+    <End Type="LimoModel.CompanyCityPrice" Role="CompanyCityPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities_extended">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="CompanyCityPrice">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_cities_extended">
+    <End Type="LimoModel.cities_extended" Role="cities_extended" Multiplicity="0..1" />
+    <End Type="LimoModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities_extended">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State">
+    <End Type="LimoModel.State" Role="State" Multiplicity="0..1" />
+    <End Type="LimoModel.City" Role="City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="state_code" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="state_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyCityPrice_Company">
+    <End Type="LimoModel.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="LimoModel.CompanyCityPrice" Role="CompanyCityPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="CompanyCityPrice">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactPerson_Company">
+    <End Type="LimoModel.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="LimoModel.ContactPerson" Role="ContactPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="ContactPerson">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Job_User">
+    <End Type="LimoModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="LimoModel.Job" Role="Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

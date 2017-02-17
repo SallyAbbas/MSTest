@@ -1,0 +1,354 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+.Page
+{
+    /*background-color:#2fbaef;    */
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    vertical-align: baseline;
+    background-image: url('../Image/bg1.jpg');
+}
+
+.InnerPage
+{
+    /*background-color:#2fbaef;    */
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    vertical-align: baseline;
+    background-color:#ffffff;
+}
+
+.Content
+{ 
+    margin: 0px auto 0px;
+    min-height: 600px;
+    position: relative;
+    width: 960px;    
+}
+
+.ContentInnerPage
+{ 
+    margin: 0px auto 0px;
+    /*min-height: 600px;*/
+    position: relative;
+    width: 960px;
+    /*background-color:#f9f9f9;*/
+    border-radius:10px;  
+}
+
+.header
+{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background-image: url('../Image/bar.png');
+    background-repeat: repeat-x;    
+}
+
+.SubMenue
+{
+    position: relative;
+    margin: 0px;
+    padding: 0px;   
+    background-image: url('../Image/whitebar.png');
+    background-repeat: repeat-x; 
+    border-collapse: collapse; 
+}
+
+.SubMenueBody
+{
+    /*background-image: url('../Image/whitebar.png');
+    background-repeat: repeat-x;*/
+    background-color: #f9f9f9;
+    width:100%;
+    margin:0px;
+    padding:0px;
+}
+
+a
+{
+    padding: 0px 5px 0px 5px;
+    color: Black;
+    font:20px;
+    text-decoration: none;
+}
+
+ a:hover
+{
+    color: #2fbaef;
+    text-decoration: none;
+    background-image: url('../Image/btnshover.png');
+    background-repeat: repeat-x;
+}
+
+ a:active
+{    
+    color: #2fbaef;
+    text-decoration: none;
+     background-image: url('../Image/btnshover.png');
+    background-repeat: repeat-x;
+}
+
+.SubMenue a
+{
+    padding: 5px 5px 5px 5px;
+    color: Black;
+    font:14px;
+    text-decoration: none;
+}
+
+ .SubMenue a:hover
+{
+    color: #fba011;
+    text-decoration: none;  
+     background-image: none;
+}
+
+ .SubMenue a:active
+{    
+    color: #fba011;
+    text-decoration: none;
+     background-image: none;
+}
+
+.Title
+{
+    font-size:52px;
+    font-family:Arial;
+    font-weight:bold;
+    color:Black;
+}
+
+.SecondTitle
+{
+    font-size:10px;
+    font-family:Arial;
+    color:Black;
+}
+
+.Lable
+{
+    font-size:18px;
+    font-family:Arial;
+    color:Black;
+}
+
+.WatermarkedText
+{
+    color: Gray;
+    font-size: 17px;
+}
+
+.TitleInnerPage
+{
+    font-size:22px;
+    font-family:Arial;
+    font-weight:bold;
+    color:#636363;
+}
+
+fieldset
+{
+    margin: 10px;
+    padding: 5px;
+    border: 5px solid #0085CC;
+    width:100%;
+}
+
+.TitleError
+{
+    font-size:22px;
+    font-family:Arial;
+    font-weight:bold;
+    color:Red;
+}
+
+.paddingEngin
+{
+    padding:5px;    
+    text-align: center;
+ }
+ 
+li {
+    -moz-box-sizing: border-box;
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+    float: left;
+    height: 300px;
+    margin-right: 1%;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    width: 22%;
+    display:table;
+}
+
+li.selected {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 5px solid #16A2E2;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+    position: relative;
+    z-index: 2;
+}
+
+.CarType {
+   clear: both;
+    color: #555555;
+    font-size: 18px;
+}
+
+.Price {
+   clear: both;
+    color: #0085CC;
+    display: block;
+    font-size: 70px;
+}
+
+.Description {
+     color: #777777;
+    display: inline-block;
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+.EngineTitle
+{
+    font-size:30px;
+    font-family:Arial;
+    font-weight:bold;
+    color:White;
+    text-align: center; vertical-align: middle;
+    padding:10px;
+}
+
+.EngineSecondTitle
+{
+    font-size:26px;
+    font-family:Arial;
+    color:White;
+}
+
+.EnginUI
+{
+    /*background: none repeat scroll 0 0 #15346B;*/
+    /*box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);*/
+    filter: none;    
+    min-height: 447px;
+    padding-left: 10px;
+    padding-top:5px;
+    position: relative;
+    width: 340px;
+    z-index: 100; 
+    /*background-color:#15346B;*/
+    border-radius:10px;
+    /*position:relative;
+    top:-160px;
+    left:-90px;*/
+}
+
+.EnginLable
+{
+    font:12px;
+    color:White;
+}
+
+tr.ResCarType {
+    -moz-box-sizing: border-box;
+/*    background: none repeat scroll 0 0 #EEEEEE;*/
+background: none repeat scroll 0 0 #FFFFFF;
+border: 5px solid #EEEEEE;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+    /*float: left;*/
+    /*height: 300px;*/
+    margin-right: 1%;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    display:table;
+}
+
+tr.ResCarType.selected, td.ResCarType.selected {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 5px solid #0085CC;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+    position: relative;
+    z-index: 2;
+}
+
+.FotterTitle
+{
+    font-size:20px;
+    font-family:Arial;
+    font-weight:bold;    
+}
+
+.DivFotter
+{
+    background-color: #C6C3CA;
+     border-radius: 5px; 
+     width: 90%;
+     height: 400px;
+     padding-top:15px;
+     padding-left:15px;
+     padding-right:5px;
+}
+
+#twitter-widget-0 {
+  width:265px;
+  height:325px;
+}
+
+.Hidden
+{visibility:hidden;}
+.Showen
+{visibility:visible;}
+
+.LableBold
+{
+    font-size:40px;
+    font-family:Arial;
+    color:Black;
+    font-weight:bold;
+}
+
+.PaymentLable
+{
+    font-size:16px;
+    font-family:Arial;
+    color:Black;
+    font-weight:bold;
+}
+
+.ConfirmButt
+{         
+     font-size:26px;     
+}
+
+input
+{
+    border-radius:10px;
+}
+
+.StateHeader
+{
+    width:850px;
+    height: 283px;   
+}
+
+.StatesLinks a {    
+    font-size: 10px;
+}
+
+.art-hmenu li
+{
+    box-shadow: none !important;
+    }

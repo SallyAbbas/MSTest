@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LemoDALStoreContainer" CdmEntityContainer="LimoEntitiesEntityFremwork">
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="Lemo.DAL.Car">
+        <MappingFragment StoreEntitySet="Car">
+          <ScalarProperty Name="CarID" ColumnName="CarID" />
+          <ScalarProperty Name="CarName" ColumnName="CarName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="NoPassengers" ColumnName="NoPassengers" />
+          <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+          <ScalarProperty Name="PricePerHore" ColumnName="PricePerHore" />
+          <ScalarProperty Name="PricePerMaile" ColumnName="PricePerMaile" />
+          <ScalarProperty Name="CarNumber" ColumnName="CarNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities_extended">
+      <EntityTypeMapping TypeName="Lemo.DAL.cities_extended">
+        <MappingFragment StoreEntitySet="cities_extended">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="state_code" ColumnName="state_code" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="county" ColumnName="county" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="Lemo.DAL.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="state_code" ColumnName="state_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="Lemo.DAL.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="GratuityNote" ColumnName="GratuityNote" />
+          <ScalarProperty Name="Gratuity" ColumnName="Gratuity" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PricePerHour" ColumnName="PricePerHour" />
+          <ScalarProperty Name="PricePerMile" ColumnName="PricePerMile" />
+          <ScalarProperty Name="LimoAPIID" ColumnName="LimoAPIID" />
+          <ScalarProperty Name="LimoAPIKey" ColumnName="LimoAPIKey" />
+          <ScalarProperty Name="IsSupportAllState" ColumnName="IsSupportAllState" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+          <ScalarProperty Name="DistancePerMile" ColumnName="DistancePerMile" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="imagePath" ColumnName="imagePath" />
+          <ScalarProperty Name="IsTop" ColumnName="IsTop" />
+          <ScalarProperty Name="TopRank" ColumnName="TopRank" />
+          <ScalarProperty Name="OUR_SERVICE" ColumnName="OUR_SERVICE" />
+          <ScalarProperty Name="OUR_FLEET" ColumnName="OUR_FLEET" />
+          <ScalarProperty Name="About_Us" ColumnName="About_Us" />
+          <ScalarProperty Name="Contact_Us" ColumnName="Contact_Us" />
+          <ScalarProperty Name="State_Tax" ColumnName="State_Tax" />
+          <ScalarProperty Name="City_Tax" ColumnName="City_Tax" />
+          <ScalarProperty Name="OtherTax1" ColumnName="OtherTax1" />
+          <ScalarProperty Name="Tax1Note" ColumnName="Tax1Note" />
+          <ScalarProperty Name="OtherTax2" ColumnName="OtherTax2" />
+          <ScalarProperty Name="Tax2Note" ColumnName="Tax2Note" />
+          <ScalarProperty Name="IsDespath" ColumnName="IsDespath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyCityPrices">
+      <EntityTypeMapping TypeName="Lemo.DAL.CompanyCityPrice">
+        <MappingFragment StoreEntitySet="CompanyCityPrice">
+          <ScalarProperty Name="CompanyCityPriceID" ColumnName="CompanyCityPriceID" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactPersons">
+      <EntityTypeMapping TypeName="Lemo.DAL.ContactPerson">
+        <MappingFragment StoreEntitySet="ContactPerson">
+          <ScalarProperty Name="ContactPersonID" ColumnName="ContactPersonID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TimeFrom" ColumnName="TimeFrom" />
+          <ScalarProperty Name="TimeTo" ColumnName="TimeTo" />
+          <ScalarProperty Name="AvailableDays" ColumnName="AvailableDays" />
+          <ScalarProperty Name="Job" ColumnName="Job" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Corporates">
+      <EntityTypeMapping TypeName="Lemo.DAL.Corporate">
+        <MappingFragment StoreEntitySet="Corporate">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobStatus">
+      <EntityTypeMapping TypeName="Lemo.DAL.JobStatu">
+        <MappingFragment StoreEntitySet="JobStatus">
+          <ScalarProperty Name="JobStatusID" ColumnName="JobStatusID" />
+          <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+          <ScalarProperty Name="color" ColumnName="color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="Lemo.DAL.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="state_code" ColumnName="state_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Lemo.DAL.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Lemo.DAL.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SatatID" ColumnName="SatatID" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Passwords" ColumnName="Passwords" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CardZipCode" ColumnName="CardZipCode" />
+          <ScalarProperty Name="CardAddress" ColumnName="CardAddress" />
+          <ScalarProperty Name="CardStateID" ColumnName="CardStateID" />
+          <ScalarProperty Name="CardExpirationDate" ColumnName="CardExpirationDate" />
+          <ScalarProperty Name="CardHolderFName" ColumnName="CardHolderFName" />
+          <ScalarProperty Name="CardHolderLName" ColumnName="CardHolderLName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarTypes">
+      <EntityTypeMapping TypeName="Lemo.DAL.CarType">
+        <MappingFragment StoreEntitySet="CarType">
+          <ScalarProperty Name="CarTypeID" ColumnName="CarTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="Lemo.DAL.Driver">
+        <MappingFragment StoreEntitySet="Driver">
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="JobStatusID" ColumnName="JobStatusID" />
+          <ScalarProperty Name="CarTypeID" ColumnName="CarTypeID" />
+          <ScalarProperty Name="DeviceToken" ColumnName="DeviceToken" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+          <ScalarProperty Name="ShowOnMap" ColumnName="ShowOnMap" />
+          <ScalarProperty Name="CarID" ColumnName="CarID" />
+          <ScalarProperty Name="DrvierImagePath" ColumnName="DrvierImagePath" />
+          <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriverLocations">
+      <EntityTypeMapping TypeName="Lemo.DAL.DriverLocation">
+        <MappingFragment StoreEntitySet="DriverLocation">
+          <ScalarProperty Name="DriverLocationID" ColumnName="DriverLocationID" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Lng" ColumnName="Lng" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbRates">
+      <EntityTypeMapping TypeName="Lemo.DAL.tbRate">
+        <MappingFragment StoreEntitySet="tbRate">
+          <ScalarProperty Name="RateID" ColumnName="RateID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="Lemo.DAL.Job">
+        <MappingFragment StoreEntitySet="Job">
+          <ScalarProperty Name="ToLng" ColumnName="ToLng" />
+          <ScalarProperty Name="ToLat" ColumnName="ToLat" />
+          <ScalarProperty Name="FromLng" ColumnName="FromLng" />
+          <ScalarProperty Name="FromLat" ColumnName="FromLat" />
+          <ScalarProperty Name="NoPassenger" ColumnName="NoPassenger" />
+          <ScalarProperty Name="JobBy" ColumnName="JobBy" />
+          <ScalarProperty Name="CorporateID" ColumnName="CorporateID" />
+          <ScalarProperty Name="IsDespath" ColumnName="IsDespath" />
+          <ScalarProperty Name="JobStatusID" ColumnName="JobStatusID" />
+          <ScalarProperty Name="AuthorizInvoiceNumber" ColumnName="AuthorizInvoiceNumber" />
+          <ScalarProperty Name="AuthorizationCode" ColumnName="AuthorizationCode" />
+          <ScalarProperty Name="TripConfirmationNumber" ColumnName="TripConfirmationNumber" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="PriceNote" ColumnName="PriceNote" />
+          <ScalarProperty Name="JobTime" ColumnName="JobTime" />
+          <ScalarProperty Name="JobDate" ColumnName="JobDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ComapnyConfirmNum" ColumnName="ComapnyConfirmNum" />
+          <ScalarProperty Name="LimoConfirmNumber" ColumnName="LimoConfirmNumber" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="OtherPrice" ColumnName="OtherPrice" />
+          <ScalarProperty Name="Taxes" ColumnName="Taxes" />
+          <ScalarProperty Name="ProcessingFee" ColumnName="ProcessingFee" />
+          <ScalarProperty Name="GratuityPrice" ColumnName="GratuityPrice" />
+          <ScalarProperty Name="EstimatedFarePrice" ColumnName="EstimatedFarePrice" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="TimeMinute" ColumnName="TimeMinute" />
+          <ScalarProperty Name="TimeHour" ColumnName="TimeHour" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
+          <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
+          <ScalarProperty Name="CompanyCarID" ColumnName="CompanyCarID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogTimes">
+      <EntityTypeMapping TypeName="Lemo.DAL.LogTime">
+        <MappingFragment StoreEntitySet="LogTime">
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="LogTime1" ColumnName="LogTime" />
+          <ScalarProperty Name="JobStatusId" ColumnName="JobStatusId" />
+          <ScalarProperty Name="Lng" ColumnName="Lng" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="LogTimeId" ColumnName="LogTimeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

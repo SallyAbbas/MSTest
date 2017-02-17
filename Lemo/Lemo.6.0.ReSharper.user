@@ -1,0 +1,118 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:ManageCompany.aspx.cs" caret="3196" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:Login.ascx.cs" caret="1231" fromTop="14" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Controls/f:ReservationFees.ascx" caret="7474" fromTop="113" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Web References/d:limoallover/f:Reference.cs" caret="29785" fromTop="15" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Controls/f:MapForLiveReservation.ascx" caret="0" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:ManageReservation.aspx.cs" caret="0" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:LiveReservation.aspx.cs" caret="0" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:JobDetails.aspx.cs" caret="0" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:MyReservation.aspx.cs" caret="0" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Controls/f:FeesDetais.ascx" caret="124" fromTop="1" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Classes/f:JobWrapper.cs" caret="3489" fromTop="22" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:Reservation.ascx.cs" caret="7334" fromTop="18" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:Payment.aspx.cs" caret="21090" fromTop="10" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Controls/f:MapForLiveReservation.ascx.cs" caret="1751" fromTop="19" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:CompleteReservation.aspx.cs" caret="3526" fromTop="20" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/f:AdminMaster.Master" caret="4404" fromTop="16" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:ManageSettle.aspx.cs" caret="203" fromTop="9" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:Settle.aspx.cs" caret="209" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:Settle.ascx.cs" caret="316" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:Settle.ascx" caret="107" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:Settle.ascx.designer.cs" caret="444" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:Settle.aspx" caret="499" fromTop="7" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/d:Airports/f:Baltimore.aspx" caret="77565" fromTop="5" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:ManageSettle.ascx" caret="125" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:ManageSettle.ascx.cs" caret="4901" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:ManageSettle.ascx.designer.cs" caret="438" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:ManageSettle.aspx" caret="222" fromTop="2" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/f:Web.config" caret="2568" fromTop="19" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:ManageSettle.aspx.designer.cs" caret="778" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:Settle.aspx.designer.cs" caret="777" fromTop="24" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Classes/f:JobWrapper.cs" caret="3489" fromTop="22" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:CompleteReservation.aspx.cs" caret="2786" fromTop="11" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:CompleteReservation.aspx.cs" caret="3526" fromTop="20" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:Payment.aspx.cs" caret="21003" fromTop="3" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:Payment.aspx.cs" caret="22116" fromTop="25" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:Payment.aspx.cs" caret="21450" fromTop="27" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:Payment.aspx.cs" caret="20989" fromTop="22" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:Payment.aspx.cs" caret="20989" fromTop="12" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:Payment.aspx.cs" caret="21453" fromTop="27" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:Payment.aspx.cs" caret="20838" fromTop="11" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:Payment.aspx.cs" caret="21373" fromTop="25" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/f:Payment.aspx.cs" caret="21090" fromTop="17" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/f:AdminMaster.Master" caret="4404" fromTop="16" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:ManageSettle.aspx.cs" caret="215" fromTop="9" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:ManageSettle.aspx" caret="813" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:Settle.aspx" caret="563" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:Settle.aspx.cs" caret="209" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:ManageSettle.ascx.cs" caret="2706" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:Settle.ascx" caret="113" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:Settle.ascx" caret="19645" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:Settle.ascx.cs" caret="316" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:Settle.aspx" caret="207" fromTop="1" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Pages/d:Airports/f:Baltimore.aspx" caret="77565" fromTop="5" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:ManageSettle.ascx" caret="125" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:ManageSettle.ascx" caret="1470" fromTop="0" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:ManageSettle.ascx.cs" caret="305" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Controls/f:ManageSettle.ascx.cs" caret="4901" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:ManageSettle.aspx" caret="222" fromTop="2" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:ManageSettle.aspx.designer.cs" caret="778" fromTop="6" />
+      <File id="EC8FB852-EF4D-49B3-9614-768CF3AB67BB/d:Admin/d:Pages/f:Settle.aspx.designer.cs" caret="748" fromTop="6" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="AspCodeCompletionContext">
+      <Item value="text-align" priority="31" />
+      <Item value="widows" priority="31" />
+      <Item value="Button" priority="6" />
+      <Item value="float" priority="15" />
+      <Item value="server" priority="6" />
+      <Item value="Visible" priority="6" />
+      <Item value="width" priority="39" />
+      <Item value="background-color" priority="7" />
+      <Item value="color" priority="7" />
+      <Item value="display" priority="7" />
+      <Item value="font-size" priority="15" />
+      <Item value="border-bottom-color" priority="7" />
+      <Item value="padding" priority="7" />
+      <Item value="padding-top" priority="7" />
+    </ItemStatistics>
+    <ItemStatistics item="CssCodeCompletionContext">
+      <Item value="text-align" priority="3" />
+      <Item value="widows" priority="3" />
+      <Item value="float" priority="1" />
+      <Item value="width" priority="4" />
+      <Item value="background-color" priority="0" />
+      <Item value="color" priority="0" />
+      <Item value="display" priority="0" />
+      <Item value="font-size" priority="1" />
+      <Item value="border-bottom-color" priority="0" />
+      <Item value="padding" priority="0" />
+      <Item value="padding-top" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

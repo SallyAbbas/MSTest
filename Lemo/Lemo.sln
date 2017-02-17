@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lemo", "Lemo\Lemo.csproj", "{EC8FB852-EF4D-49B3-9614-768CF3AB67BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC8FB852-EF4D-49B3-9614-768CF3AB67BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC8FB852-EF4D-49B3-9614-768CF3AB67BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC8FB852-EF4D-49B3-9614-768CF3AB67BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC8FB852-EF4D-49B3-9614-768CF3AB67BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

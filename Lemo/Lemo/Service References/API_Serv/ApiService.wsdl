@@ -1,0 +1,3879 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://book.mylimobiz.com/api" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://book.mylimobiz.com/api" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://book.mylimobiz.com/api">
+      <s:element name="Test">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestResult" type="tns:RideResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RideResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="TripInfo" type="tns:TripInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ApiServiceResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TripInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TripId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripConfirmationNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripPassEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripPassFName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripPassLName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripPUDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripPUTime" nillable="true" type="tns:TimeSpan" />
+          <s:element minOccurs="0" maxOccurs="1" name="PuLocation" type="tns:Location" />
+          <s:element minOccurs="0" maxOccurs="1" name="DoLocation" type="tns:Location" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TimeSpan" />
+      <s:complexType name="Location">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LocationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripRtType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDateTimeInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDateTimeInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDateTimeInfoResult" type="tns:DateTimeInfoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DateTimeInfoResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="BackofficeDateFormat" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BackofficeTimeFormat" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OresDateFormat" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OresTimeFormat" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ImportReservation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ride" type="tns:Ride" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Ride">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTrip" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripConfNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RideSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RideType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RideNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RideDuration" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PickUpDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PickUpTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DropOffTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpotTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCard" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfPax" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfLuggage" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassengerFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassengerLastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassengerEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassengerPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialRequests" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RideRouteBlock" type="tns:ArrayOfRoutingItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="BillingContact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BillingAccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalPassengers" type="tns:ArrayOfAdditionalPassenger" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Occasion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferralSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RideNotes" type="tns:RideNotes" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehicleType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCExpDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCBillingAddr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCNotes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RatesMapping" type="tns:RatesMapping" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialChildSeat" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SpecialChildSeatCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SpecialHandicap" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PromoCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Driver" type="tns:Driver" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdAgent" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdAgent2" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripStatusCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripDispatchNotes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRoutingItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RoutingItem" nillable="true" type="tns:RoutingItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RoutingItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RIId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RIPosition" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RITime" nillable="true" type="tns:TimeSpan" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIAddr1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIAddr2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RICity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RICountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RINotes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIInstructions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIMisc1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIMisc2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIMisc3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RIMisc4" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RILng" nillable="true" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="RILat" nillable="true" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="RIIdAirportInstr" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAdditionalPassenger">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AdditionalPassenger" nillable="true" type="tns:AdditionalPassenger" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AdditionalPassenger">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalPaxFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalPaxLastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalPaxPhoneNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalPaxEmail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RideNotes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddToTripSheet" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HideFromCustomer" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RatesMapping">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BaseRate" type="tns:RateFixed" />
+          <s:element minOccurs="0" maxOccurs="1" name="PerHourRate" type="tns:RateMultiply" />
+          <s:element minOccurs="0" maxOccurs="1" name="PerMileRate" type="tns:RateMultiply" />
+          <s:element minOccurs="0" maxOccurs="1" name="PerPassengerRate" type="tns:RateMultiply" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraStops" type="tns:RateFixed" />
+          <s:element minOccurs="0" maxOccurs="1" name="OvertimeWaitTime" type="tns:RateFixed" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gratuity" type="tns:RatePercentage" />
+          <s:element minOccurs="0" maxOccurs="1" name="FuelSurcharge" type="tns:RatePercentage" />
+          <s:element minOccurs="0" maxOccurs="1" name="STCSurcharge" type="tns:RatePercentage" />
+          <s:element minOccurs="0" maxOccurs="1" name="Discount2" type="tns:RateFixed" />
+          <s:element minOccurs="0" maxOccurs="1" name="Misc1" type="tns:RateMisc" />
+          <s:element minOccurs="0" maxOccurs="1" name="Misc2" type="tns:RateMisc" />
+          <s:element minOccurs="0" maxOccurs="1" name="Misc3" type="tns:RateMisc" />
+          <s:element minOccurs="0" maxOccurs="1" name="Misc4" type="tns:RateMisc" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RateFixed">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Rate" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RateMultiply">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RatePerUnit" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Units" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RatePercentage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PercentageAmount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RateMisc">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Rate" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="RateName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Driver">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DriverId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverFName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverLName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomePhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CellPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherPhone" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ImportReservationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportReservationResult" type="tns:RideResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVehicleTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVehicleTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVehicleTypesResult" type="tns:VehicleTypeResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VehicleTypeResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="VehicleTypes" type="tns:ArrayOfVehicleType" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfVehicleType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VehicleType" nillable="true" type="tns:VehicleType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VehicleType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="VehTypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehTypeTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehTypeImg1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehTypeImg2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehTypeImg3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehTypeImg4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehTypeImg5" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetVehicleTypesForOres">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVehicleTypesForOresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVehicleTypesForOresResult" type="tns:VehicleTypeResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServiceTypesResult" type="tns:ServiceTypeResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceTypeResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ServiceTypes" type="tns:ArrayOfServiceType" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfServiceType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ServiceType" nillable="true" type="tns:ServiceType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ServiceType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SvcTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SvcTypeDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rateInfo" type="tns:RateInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RateInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CouId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RateType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PuDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimaryPaxId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaxCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehicleType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HandicapRequired" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HourCount" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="PromoCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripRoutes" type="tns:ArrayOfRoutingItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRatesResult" type="tns:RateResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RateResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Rates" type="tns:ArrayOfRate" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfRate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Rate" nillable="true" type="tns:Rate" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Rate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehTypeCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="RateItems" type="tns:ArrayOfRateItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRateItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RateItem" nillable="true" type="tns:RateItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RateItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RateId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GroupId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RateDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Units" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RateTotal" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RateQuote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rateInfo" type="tns:ShortRateInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShortRateInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RateType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PuDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimaryPaxId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaxCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehicleType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HandicapRequired" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HourCount" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="PromoCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripRoutes" type="tns:ArrayOfRoutingItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RateQuoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RateQuoteResult" type="tns:RateResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAirports">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAirportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAirportsResult" type="tns:AirportResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AirportResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Airports" type="tns:ArrayOfAirport" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAirport">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Airport" nillable="true" type="tns:Airport" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Airport">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AirportId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AirportCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AirportName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAirlines">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAirlinesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAirlinesResult" type="tns:AirlineResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AirlineResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Airlines" type="tns:ArrayOfAirline" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAirline">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Airline" nillable="true" type="tns:Airline" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Airline">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AirlineCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AirlineName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSeaports">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeaportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSeaportsResult" type="tns:SeaportResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SeaportResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Seaports" type="tns:ArrayOfSeaport" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfSeaport">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Seaport" nillable="true" type="tns:Seaport" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Seaport">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SeaportId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeaportCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeaportName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFBOs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFBOsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFBOsResult" type="tns:FBOResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FBOResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="FBOs" type="tns:ArrayOfFBO" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfFBO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FBO" nillable="true" type="tns:FBO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FBO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FBOAirport" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FBOName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FBOAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FBOAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FBOCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FBOState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FBOZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FBOCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FBOPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FBONotes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPOIs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPOIsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPOIsResult" type="tns:POIResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="POIResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="POIs" type="tns:ArrayOfPOI" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfPOI">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="POI" nillable="true" type="tns:POI" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="POI">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="POICategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POIName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POIAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POIAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POICity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POIState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POIZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POICountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POIPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POINotes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POIEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POIWebAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="POIHideInOnlineRes" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatesResult" type="tns:StateResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StateResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="States" type="tns:ArrayOfState" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfState">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="State" nillable="true" type="tns:State" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="State">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StateId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCountries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCountriesResult" type="tns:CountryResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CountryResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Countries" type="tns:ArrayOfCountry" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCountry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Country" nillable="true" type="tns:Country" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Country">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOccasions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOccasionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOccasionsResult" type="tns:OccasionResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OccasionResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Occasions" type="tns:ArrayOfOccasion" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfOccasion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Occasion" nillable="true" type="tns:Occasion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Occasion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OccasionId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OccasionTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OccasionDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTripReservationStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTripReservationStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTripReservationStatusResult" type="tns:ReservationStatusResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReservationStatusResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ReservationStatuses" type="tns:ArrayOfReservationStatus" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReservationStatus" type="tns:ReservationStatus" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfReservationStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReservationStatus" nillable="true" type="tns:ReservationStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReservationStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StatusCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReservation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReservationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReservationResult" type="tns:FullRideResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FullRideResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Ride" type="tns:Ride" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SearchReservations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchOptions" type="tns:SearchReservationsData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SearchReservationsData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DateStart" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReservationStatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchReservationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchReservationsResult" type="tns:ReservationsResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReservationsResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Reservations" type="tns:ArrayOfRide" />
+              <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TotalCount" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfRide">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Ride" nillable="true" type="tns:Ride" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetNextConfNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNextConfNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNextConfNumberResult" type="tns:ConfNumberResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConfNumberResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="TripConfNumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetTripDriver">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTripDriverResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTripDriverResult" type="tns:DriverResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DriverResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Drivers" type="tns:ArrayOfDriver" />
+              <s:element minOccurs="0" maxOccurs="1" name="Driver" type="tns:Driver" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfDriver">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Driver" nillable="true" type="tns:Driver" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTripCar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTripCarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTripCarResult" type="tns:CarResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CarResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Cars" type="tns:ArrayOfCar" />
+              <s:element minOccurs="0" maxOccurs="1" name="Car" type="tns:Car" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Car" nillable="true" type="tns:Car" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Car">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CarId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CellPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TwoWayRadioId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateAffInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="affInfo" type="tns:AffInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AffInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TripAffRefNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdAffAgrTmpl" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AffStatus" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffRate" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffGratuity" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffSTC" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffStops" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripTolls" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffParking" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffWaiting" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffAirportFee" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffFuelSurcharge" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffMeetGreet" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffPhone" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffDiscount" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripAffMiscDescr1" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffMiscChargeAmount1" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripAffMiscDescr2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffMiscChargeAmount2" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripAffMiscDescr3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffMiscChargeAmount3" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffHolidayCharge" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripAffLateEarlyCharge" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateAffInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAffInfoResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBillingInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acctNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBillingInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateBillingInfoResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePassInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePassInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePassInfoResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAdditionalPassenger">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAdditionalPassengerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddAdditionalPassengerResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveAdditionalPassenger">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idPax" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveAdditionalPassengerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveAdditionalPassengerResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paxCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="luggageCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCountResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePUDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="puDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePUDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePUDateResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePUTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="puTime" type="tns:TimeSpan" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePUTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePUTimeResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDOTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="doTime" type="tns:TimeSpan" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDOTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDOTimeResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSpotTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="spotTime" type="tns:TimeSpan" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSpotTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateSpotTimeResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateGarageOutTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="garageOutTime" type="tns:TimeSpan" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateGarageOutTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateGarageOutTimeResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateGarageInTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="garageInTime" type="tns:TimeSpan" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateGarageInTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateGarageInTimeResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDispatchTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dispatchTime" type="tns:TimeSpan" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDispatchTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDispatchTimeResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateETAToPickupTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="etaToPickupTime" type="tns:TimeSpan" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateETAToPickupTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateETAToPickupTimeResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInCarTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="inCarTime" type="tns:TimeSpan" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInCarTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateInCarTimeResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTripRoutings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTripRoutingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTripRoutingsResult" type="tns:RoutingResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RoutingResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Routings" type="tns:ArrayOfRoutingItem" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="UpdateRoutingInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="routing" type="tns:RoutingItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRoutingInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateRoutingInfoResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTripNotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTripNotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateTripNotesResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSpecialRequirements">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="childSeat" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="childSeatCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="handicap" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSpecialRequirementsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateSpecialRequirementsResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeVehicleType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vehicleType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeVehicleTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangeVehicleTypeResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRateInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rateInfo" type="tns:Rate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRateInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateRateInfoResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelReservation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelReservationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelReservationResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTimeDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTimeDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTimeDetailsResult" type="tns:TimeResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TimeResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="TimeDetails" type="tns:TimeDetails" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TimeDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PickUpTime" nillable="true" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="DropOffTime" nillable="true" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="GarageIn" nillable="true" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="GarageOut" nillable="true" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="DispatchedTime" nillable="true" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="EtaTime" nillable="true" type="tns:TimeSpan" />
+          <s:element minOccurs="1" maxOccurs="1" name="InCarTime" nillable="true" type="tns:TimeSpan" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTripCharges">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTripChargesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTripChargesResult" type="tns:RatesMappingResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RatesMappingResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RatesMapping" type="tns:RatesMapping" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetAccountsByEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountsByEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountsByEmailResult" type="tns:AccountResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AccountResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Accounts" type="tns:ArrayOfAccountInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAccountInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccountInfo" nillable="true" type="tns:AccountInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccountInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseAccountInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AcctID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AcctNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OfficePhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="HomePhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MoblePhone1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MoblePhone2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MoblePhone3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fax1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fax2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmailList" type="tns:ArrayOfAccountEmail" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentTerms" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseAccountInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdCont" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdComp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdParent" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContAcctNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPrefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContFName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContLName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContDept" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContCompany" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContJobTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContType1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContType2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContType3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContAddr1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContAddr2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContDirections" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPhone1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPhone1Ext" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPhone2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPhone2Ext" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPhone3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPhone3Ext" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPhone4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPhone4Ext" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPhone5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPhone5Ext" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContFax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContFax1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContEmail1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContConfirm1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContConfirm2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContNotesPr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContNotesPrefs" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContNotesTrip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPrLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContWebAccess" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContWebUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContWebPass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContBalance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContTerms" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContGrat" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContDiscType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContDiscount" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContVoucher" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContVoucherFee" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContOtherSurch" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContOtherSurchPerc" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContExtraFld1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContExtraFld2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContExtraFld3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateUpdated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdatedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContExtraFldNV1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContExtraFldNV2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContExtraFldNV3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContExtraFldFL1" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContExtraFldFL2" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContExtraFldFL3" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContWebResApprove" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContCountry" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdAgent" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContAgentRate" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContAgentRateType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdAgent2" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContAgent2Rate" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContAgent2RateType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContORSAutoAppr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContORSDisallowHrs" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPrefVehType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LANetLogin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContVehPref" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContDriverPref" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdAgrTmpl" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContLogo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContDriverNotes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdWebLogin" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContPaymentMethod" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCustomContAcctNumber" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SamlUID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAccountEmail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccountEmail" nillable="true" type="tns:AccountEmail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccountEmail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdAccountEmail" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCont" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:AccountEmailType" />
+          <s:element minOccurs="1" maxOccurs="1" name="Notification" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailProperties" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AccountEmailType">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="Confirmation" />
+              <s:enumeration value="PaymentReceipt" />
+              <s:enumeration value="Invoice" />
+              <s:enumeration value="Other" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:element name="GetAccountsByPhone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountsByPhoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountsByPhoneResult" type="tns:AccountResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountsByAcctNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acctNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountsByAcctNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountsByAcctNumberResult" type="tns:AccountResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountsByUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountsByUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountsByUserNameResult" type="tns:AccountResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountAddresses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="acctId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountAddressesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountAddressesResult" type="tns:AddressResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddressResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Addresses" type="tns:ArrayOfAddress" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AddressType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAccountCreditCards">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="acctId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountCreditCardsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountCreditCardsResult" type="tns:CreditCardResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CreditCardResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CreditCards" type="tns:ArrayOfCreditCard" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCreditCard">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CreditCard" nillable="true" type="tns:CreditCard" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CreditCard">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CardID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastFourNumbers" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BillingAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Preferred" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateCreditCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="card" type="tns:AccountCreditCard" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AccountCreditCard">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdCard" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardExpires" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardAddr1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardAddr2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardPmtType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateCreditCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCreditCardResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountInfo" type="tns:ShortAccountInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShortAccountInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseAccountInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Prefix" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PrimaryAddress" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="StateProv" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="JobTitle" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CityTown" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Department" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AptSte" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ZipPost" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BillingContact" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Passenger" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DaytimePhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DaytimePhoneExt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EveningPhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EveningPhoneExt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MobilePhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmailList" type="tns:ArrayOfAccountEmail" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="VerifyPassword" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CreateAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateAccountResult" type="tns:AccountInfoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AccountInfoResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AcctID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AcctNumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="UpdateAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCont" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountInfo" type="tns:ShortAccountInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAccountResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginAccountResult" type="tns:LoginResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AcctId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AcctNumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetCustomerLoyaltyInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contAcctNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contWebUID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerLoyaltyInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerLoyaltyInfoResult" type="tns:CustomerLoyaltyInfoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CustomerLoyaltyInfoResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="SettledTripsCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookingDateOfTheLastSettledTrip" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetAgents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAgentsResult" type="tns:AgentInfoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AgentInfoResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Agents" type="tns:ArrayOfAgent" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAgent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Agent" nillable="true" type="tns:Agent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Agent">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdAgent" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTripStatuses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTripStatusesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTripStatusesResult" type="tns:StatusesResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StatusesResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="TripStatuses" type="tns:ArrayOfTripStatus" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfTripStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TripStatus" nillable="true" type="tns:TripStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TripStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HideFromDriver" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusColor" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusSortAdmin" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusSortDisp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusSortDriver" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateTripStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTrip" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tripCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="statusCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTripStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateTripStatusResult" type="tns:ApiServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetreiveLoginInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="retrieveType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="retrieveValue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetreiveLoginInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetreiveLoginInfoResult" type="tns:RetrieveLoginInfoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RetrieveLoginInfoResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RetrieveInfo" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetAirportInstructions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="airportCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAirportInstructionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAirportInstructionsResult" type="tns:AirportInstrInfoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AirportInstrInfoResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ApiServiceResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AtrportInstructions" type="tns:ArrayOfAirportInstr" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAirportInstr">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AirportInstr" nillable="true" type="tns:AirportInstr" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AirportInstr">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AirportCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NewRelicPing">
+        <s:complexType />
+      </s:element>
+      <s:element name="NewRelicPingResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDateTimeInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDateTimeInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetDateTimeInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDateTimeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportReservationSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportReservation" />
+  </wsdl:message>
+  <wsdl:message name="ImportReservationSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVehicleTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVehicleTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetVehicleTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVehicleTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVehicleTypesForOresSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVehicleTypesForOres" />
+  </wsdl:message>
+  <wsdl:message name="GetVehicleTypesForOresSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVehicleTypesForOresResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServiceTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRates" />
+  </wsdl:message>
+  <wsdl:message name="GetRatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RateQuoteSoapIn">
+    <wsdl:part name="parameters" element="tns:RateQuote" />
+  </wsdl:message>
+  <wsdl:message name="RateQuoteSoapOut">
+    <wsdl:part name="parameters" element="tns:RateQuoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAirportsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAirports" />
+  </wsdl:message>
+  <wsdl:message name="GetAirportsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAirportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAirlinesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAirlines" />
+  </wsdl:message>
+  <wsdl:message name="GetAirlinesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAirlinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSeaportsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSeaports" />
+  </wsdl:message>
+  <wsdl:message name="GetSeaportsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSeaportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFBOsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFBOs" />
+  </wsdl:message>
+  <wsdl:message name="GetFBOsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFBOsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPOIsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPOIs" />
+  </wsdl:message>
+  <wsdl:message name="GetPOIsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPOIsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStates" />
+  </wsdl:message>
+  <wsdl:message name="GetStatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountries" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOccasionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOccasions" />
+  </wsdl:message>
+  <wsdl:message name="GetOccasionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOccasionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTripReservationStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTripReservationStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetTripReservationStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTripReservationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReservationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReservation" />
+  </wsdl:message>
+  <wsdl:message name="GetReservationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchReservationsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchReservations" />
+  </wsdl:message>
+  <wsdl:message name="SearchReservationsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNextConfNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNextConfNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetNextConfNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNextConfNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTripDriverSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTripDriver" />
+  </wsdl:message>
+  <wsdl:message name="GetTripDriverSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTripDriverResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTripCarSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTripCar" />
+  </wsdl:message>
+  <wsdl:message name="GetTripCarSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTripCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAffInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAffInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAffInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAffInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBillingInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBillingInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBillingInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBillingInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePassInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePassInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePassInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePassInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAdditionalPassengerSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAdditionalPassenger" />
+  </wsdl:message>
+  <wsdl:message name="AddAdditionalPassengerSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAdditionalPassengerResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAdditionalPassengerSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveAdditionalPassenger" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAdditionalPassengerSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveAdditionalPassengerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCountSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCount" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCountSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePUDateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePUDate" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePUDateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePUDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePUTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePUTime" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePUTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePUTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDOTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDOTime" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDOTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDOTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSpotTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSpotTime" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSpotTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSpotTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGarageOutTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateGarageOutTime" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGarageOutTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateGarageOutTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGarageInTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateGarageInTime" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGarageInTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateGarageInTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDispatchTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDispatchTime" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDispatchTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDispatchTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateETAToPickupTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateETAToPickupTime" />
+  </wsdl:message>
+  <wsdl:message name="UpdateETAToPickupTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateETAToPickupTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInCarTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateInCarTime" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInCarTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateInCarTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTripRoutingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTripRoutings" />
+  </wsdl:message>
+  <wsdl:message name="GetTripRoutingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTripRoutingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRoutingInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRoutingInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRoutingInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRoutingInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTripNotesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTripNotes" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTripNotesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTripNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSpecialRequirementsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSpecialRequirements" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSpecialRequirementsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSpecialRequirementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeVehicleTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeVehicleType" />
+  </wsdl:message>
+  <wsdl:message name="ChangeVehicleTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeVehicleTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRateInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRateInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRateInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRateInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelReservationSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelReservation" />
+  </wsdl:message>
+  <wsdl:message name="CancelReservationSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTimeDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTimeDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetTimeDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTimeDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTripChargesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTripCharges" />
+  </wsdl:message>
+  <wsdl:message name="GetTripChargesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTripChargesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountsByEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountsByEmail" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountsByEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountsByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountsByPhoneSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountsByPhone" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountsByPhoneSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountsByPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountsByAcctNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountsByAcctNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountsByAcctNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountsByAcctNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountsByUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountsByUserName" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountsByUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountsByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountAddressesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountAddresses" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountAddressesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountCreditCardsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountCreditCards" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountCreditCardsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountCreditCardsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCreditCardSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCreditCardSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCreditCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateAccount" />
+  </wsdl:message>
+  <wsdl:message name="CreateAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAccount" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginAccount" />
+  </wsdl:message>
+  <wsdl:message name="LoginAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerLoyaltyInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerLoyaltyInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerLoyaltyInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerLoyaltyInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgents" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTripStatusesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTripStatuses" />
+  </wsdl:message>
+  <wsdl:message name="GetTripStatusesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTripStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTripStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTripStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTripStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTripStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetreiveLoginInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetreiveLoginInfo" />
+  </wsdl:message>
+  <wsdl:message name="RetreiveLoginInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetreiveLoginInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAirportInstructionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAirportInstructions" />
+  </wsdl:message>
+  <wsdl:message name="GetAirportInstructionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAirportInstructionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewRelicPingSoapIn">
+    <wsdl:part name="parameters" element="tns:NewRelicPing" />
+  </wsdl:message>
+  <wsdl:message name="NewRelicPingSoapOut">
+    <wsdl:part name="parameters" element="tns:NewRelicPingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ApiServiceSoap">
+    <wsdl:operation name="Test">
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDateTimeInfo">
+      <wsdl:input message="tns:GetDateTimeInfoSoapIn" />
+      <wsdl:output message="tns:GetDateTimeInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportReservation">
+      <wsdl:input message="tns:ImportReservationSoapIn" />
+      <wsdl:output message="tns:ImportReservationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleTypes">
+      <wsdl:input message="tns:GetVehicleTypesSoapIn" />
+      <wsdl:output message="tns:GetVehicleTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleTypesForOres">
+      <wsdl:input message="tns:GetVehicleTypesForOresSoapIn" />
+      <wsdl:output message="tns:GetVehicleTypesForOresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceTypes">
+      <wsdl:input message="tns:GetServiceTypesSoapIn" />
+      <wsdl:output message="tns:GetServiceTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRates">
+      <wsdl:input message="tns:GetRatesSoapIn" />
+      <wsdl:output message="tns:GetRatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RateQuote">
+      <wsdl:input message="tns:RateQuoteSoapIn" />
+      <wsdl:output message="tns:RateQuoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAirports">
+      <wsdl:input message="tns:GetAirportsSoapIn" />
+      <wsdl:output message="tns:GetAirportsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAirlines">
+      <wsdl:input message="tns:GetAirlinesSoapIn" />
+      <wsdl:output message="tns:GetAirlinesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeaports">
+      <wsdl:input message="tns:GetSeaportsSoapIn" />
+      <wsdl:output message="tns:GetSeaportsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFBOs">
+      <wsdl:input message="tns:GetFBOsSoapIn" />
+      <wsdl:output message="tns:GetFBOsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPOIs">
+      <wsdl:input message="tns:GetPOIsSoapIn" />
+      <wsdl:output message="tns:GetPOIsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <wsdl:input message="tns:GetStatesSoapIn" />
+      <wsdl:output message="tns:GetStatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input message="tns:GetCountriesSoapIn" />
+      <wsdl:output message="tns:GetCountriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOccasions">
+      <wsdl:input message="tns:GetOccasionsSoapIn" />
+      <wsdl:output message="tns:GetOccasionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTripReservationStatus">
+      <wsdl:input message="tns:GetTripReservationStatusSoapIn" />
+      <wsdl:output message="tns:GetTripReservationStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReservation">
+      <wsdl:input message="tns:GetReservationSoapIn" />
+      <wsdl:output message="tns:GetReservationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchReservations">
+      <wsdl:input message="tns:SearchReservationsSoapIn" />
+      <wsdl:output message="tns:SearchReservationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextConfNumber">
+      <wsdl:input message="tns:GetNextConfNumberSoapIn" />
+      <wsdl:output message="tns:GetNextConfNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTripDriver">
+      <wsdl:input message="tns:GetTripDriverSoapIn" />
+      <wsdl:output message="tns:GetTripDriverSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTripCar">
+      <wsdl:input message="tns:GetTripCarSoapIn" />
+      <wsdl:output message="tns:GetTripCarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAffInfo">
+      <wsdl:input message="tns:UpdateAffInfoSoapIn" />
+      <wsdl:output message="tns:UpdateAffInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBillingInfo">
+      <wsdl:input message="tns:UpdateBillingInfoSoapIn" />
+      <wsdl:output message="tns:UpdateBillingInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassInfo">
+      <wsdl:input message="tns:UpdatePassInfoSoapIn" />
+      <wsdl:output message="tns:UpdatePassInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAdditionalPassenger">
+      <wsdl:input message="tns:AddAdditionalPassengerSoapIn" />
+      <wsdl:output message="tns:AddAdditionalPassengerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAdditionalPassenger">
+      <wsdl:input message="tns:RemoveAdditionalPassengerSoapIn" />
+      <wsdl:output message="tns:RemoveAdditionalPassengerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCount">
+      <wsdl:input message="tns:UpdateCountSoapIn" />
+      <wsdl:output message="tns:UpdateCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePUDate">
+      <wsdl:input message="tns:UpdatePUDateSoapIn" />
+      <wsdl:output message="tns:UpdatePUDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePUTime">
+      <wsdl:input message="tns:UpdatePUTimeSoapIn" />
+      <wsdl:output message="tns:UpdatePUTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDOTime">
+      <wsdl:input message="tns:UpdateDOTimeSoapIn" />
+      <wsdl:output message="tns:UpdateDOTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpotTime">
+      <wsdl:input message="tns:UpdateSpotTimeSoapIn" />
+      <wsdl:output message="tns:UpdateSpotTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGarageOutTime">
+      <wsdl:input message="tns:UpdateGarageOutTimeSoapIn" />
+      <wsdl:output message="tns:UpdateGarageOutTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGarageInTime">
+      <wsdl:input message="tns:UpdateGarageInTimeSoapIn" />
+      <wsdl:output message="tns:UpdateGarageInTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDispatchTime">
+      <wsdl:input message="tns:UpdateDispatchTimeSoapIn" />
+      <wsdl:output message="tns:UpdateDispatchTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateETAToPickupTime">
+      <wsdl:input message="tns:UpdateETAToPickupTimeSoapIn" />
+      <wsdl:output message="tns:UpdateETAToPickupTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInCarTime">
+      <wsdl:input message="tns:UpdateInCarTimeSoapIn" />
+      <wsdl:output message="tns:UpdateInCarTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTripRoutings">
+      <wsdl:input message="tns:GetTripRoutingsSoapIn" />
+      <wsdl:output message="tns:GetTripRoutingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoutingInfo">
+      <wsdl:input message="tns:UpdateRoutingInfoSoapIn" />
+      <wsdl:output message="tns:UpdateRoutingInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTripNotes">
+      <wsdl:input message="tns:UpdateTripNotesSoapIn" />
+      <wsdl:output message="tns:UpdateTripNotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpecialRequirements">
+      <wsdl:input message="tns:UpdateSpecialRequirementsSoapIn" />
+      <wsdl:output message="tns:UpdateSpecialRequirementsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeVehicleType">
+      <wsdl:input message="tns:ChangeVehicleTypeSoapIn" />
+      <wsdl:output message="tns:ChangeVehicleTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRateInfo">
+      <wsdl:input message="tns:UpdateRateInfoSoapIn" />
+      <wsdl:output message="tns:UpdateRateInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelReservation">
+      <wsdl:input message="tns:CancelReservationSoapIn" />
+      <wsdl:output message="tns:CancelReservationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeDetails">
+      <wsdl:input message="tns:GetTimeDetailsSoapIn" />
+      <wsdl:output message="tns:GetTimeDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTripCharges">
+      <wsdl:input message="tns:GetTripChargesSoapIn" />
+      <wsdl:output message="tns:GetTripChargesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByEmail">
+      <wsdl:input message="tns:GetAccountsByEmailSoapIn" />
+      <wsdl:output message="tns:GetAccountsByEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByPhone">
+      <wsdl:input message="tns:GetAccountsByPhoneSoapIn" />
+      <wsdl:output message="tns:GetAccountsByPhoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByAcctNumber">
+      <wsdl:input message="tns:GetAccountsByAcctNumberSoapIn" />
+      <wsdl:output message="tns:GetAccountsByAcctNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByUserName">
+      <wsdl:input message="tns:GetAccountsByUserNameSoapIn" />
+      <wsdl:output message="tns:GetAccountsByUserNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountAddresses">
+      <wsdl:input message="tns:GetAccountAddressesSoapIn" />
+      <wsdl:output message="tns:GetAccountAddressesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountCreditCards">
+      <wsdl:input message="tns:GetAccountCreditCardsSoapIn" />
+      <wsdl:output message="tns:GetAccountCreditCardsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCreditCard">
+      <wsdl:input message="tns:UpdateCreditCardSoapIn" />
+      <wsdl:output message="tns:UpdateCreditCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <wsdl:input message="tns:CreateAccountSoapIn" />
+      <wsdl:output message="tns:CreateAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <wsdl:input message="tns:UpdateAccountSoapIn" />
+      <wsdl:output message="tns:UpdateAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAccount">
+      <wsdl:input message="tns:LoginAccountSoapIn" />
+      <wsdl:output message="tns:LoginAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerLoyaltyInfo">
+      <wsdl:input message="tns:GetCustomerLoyaltyInfoSoapIn" />
+      <wsdl:output message="tns:GetCustomerLoyaltyInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgents">
+      <wsdl:input message="tns:GetAgentsSoapIn" />
+      <wsdl:output message="tns:GetAgentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTripStatuses">
+      <wsdl:input message="tns:GetTripStatusesSoapIn" />
+      <wsdl:output message="tns:GetTripStatusesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTripStatus">
+      <wsdl:input message="tns:UpdateTripStatusSoapIn" />
+      <wsdl:output message="tns:UpdateTripStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetreiveLoginInfo">
+      <wsdl:input message="tns:RetreiveLoginInfoSoapIn" />
+      <wsdl:output message="tns:RetreiveLoginInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAirportInstructions">
+      <wsdl:input message="tns:GetAirportInstructionsSoapIn" />
+      <wsdl:output message="tns:GetAirportInstructionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewRelicPing">
+      <wsdl:input message="tns:NewRelicPingSoapIn" />
+      <wsdl:output message="tns:NewRelicPingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ApiServiceSoap" type="tns:ApiServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateTimeInfo">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetDateTimeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportReservation">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/ImportReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleTypes">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetVehicleTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleTypesForOres">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetVehicleTypesForOres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceTypes">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetServiceTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRates">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetRates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RateQuote">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/RateQuote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirports">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetAirports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirlines">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetAirlines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeaports">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetSeaports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFBOs">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetFBOs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPOIs">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetPOIs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetStates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOccasions">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetOccasions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripReservationStatus">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetTripReservationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReservation">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReservations">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/SearchReservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextConfNumber">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetNextConfNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripDriver">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetTripDriver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripCar">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetTripCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAffInfo">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateAffInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBillingInfo">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateBillingInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassInfo">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdatePassInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAdditionalPassenger">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/AddAdditionalPassenger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAdditionalPassenger">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/RemoveAdditionalPassenger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCount">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePUDate">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdatePUDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePUTime">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdatePUTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDOTime">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateDOTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpotTime">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateSpotTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGarageOutTime">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateGarageOutTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGarageInTime">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateGarageInTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDispatchTime">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateDispatchTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateETAToPickupTime">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateETAToPickupTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInCarTime">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateInCarTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripRoutings">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetTripRoutings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoutingInfo">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateRoutingInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTripNotes">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateTripNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpecialRequirements">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateSpecialRequirements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeVehicleType">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/ChangeVehicleType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRateInfo">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateRateInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelReservation">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/CancelReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeDetails">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetTimeDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripCharges">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetTripCharges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByEmail">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetAccountsByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByPhone">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetAccountsByPhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByAcctNumber">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetAccountsByAcctNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByUserName">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetAccountsByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountAddresses">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetAccountAddresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountCreditCards">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetAccountCreditCards" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCreditCard">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateCreditCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/CreateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAccount">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/LoginAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerLoyaltyInfo">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetCustomerLoyaltyInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgents">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetAgents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripStatuses">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetTripStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTripStatus">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/UpdateTripStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetreiveLoginInfo">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/RetreiveLoginInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirportInstructions">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/GetAirportInstructions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewRelicPing">
+      <soap:operation soapAction="https://book.mylimobiz.com/api/NewRelicPing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ApiServiceSoap12" type="tns:ApiServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateTimeInfo">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetDateTimeInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportReservation">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/ImportReservation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleTypes">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetVehicleTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleTypesForOres">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetVehicleTypesForOres" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceTypes">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetServiceTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRates">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetRates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RateQuote">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/RateQuote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirports">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetAirports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirlines">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetAirlines" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeaports">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetSeaports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFBOs">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetFBOs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPOIs">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetPOIs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetStates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetCountries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOccasions">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetOccasions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripReservationStatus">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetTripReservationStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReservation">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetReservation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReservations">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/SearchReservations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextConfNumber">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetNextConfNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripDriver">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetTripDriver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripCar">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetTripCar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAffInfo">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateAffInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBillingInfo">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateBillingInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassInfo">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdatePassInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAdditionalPassenger">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/AddAdditionalPassenger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAdditionalPassenger">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/RemoveAdditionalPassenger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCount">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePUDate">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdatePUDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePUTime">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdatePUTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDOTime">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateDOTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpotTime">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateSpotTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGarageOutTime">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateGarageOutTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGarageInTime">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateGarageInTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDispatchTime">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateDispatchTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateETAToPickupTime">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateETAToPickupTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInCarTime">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateInCarTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripRoutings">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetTripRoutings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoutingInfo">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateRoutingInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTripNotes">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateTripNotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpecialRequirements">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateSpecialRequirements" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeVehicleType">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/ChangeVehicleType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRateInfo">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateRateInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelReservation">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/CancelReservation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeDetails">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetTimeDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripCharges">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetTripCharges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByEmail">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetAccountsByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByPhone">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetAccountsByPhone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByAcctNumber">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetAccountsByAcctNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByUserName">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetAccountsByUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountAddresses">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetAccountAddresses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountCreditCards">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetAccountCreditCards" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCreditCard">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateCreditCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/CreateAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAccount">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/LoginAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerLoyaltyInfo">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetCustomerLoyaltyInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgents">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetAgents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripStatuses">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetTripStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTripStatus">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/UpdateTripStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetreiveLoginInfo">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/RetreiveLoginInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirportInstructions">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/GetAirportInstructions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewRelicPing">
+      <soap12:operation soapAction="https://book.mylimobiz.com/api/NewRelicPing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ApiService">
+    <wsdl:port name="ApiServiceSoap" binding="tns:ApiServiceSoap">
+      <soap:address location="https://dev.mylimobiz.com/api/ApiService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ApiServiceSoap12" binding="tns:ApiServiceSoap12">
+      <soap12:address location="https://dev.mylimobiz.com/api/ApiService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

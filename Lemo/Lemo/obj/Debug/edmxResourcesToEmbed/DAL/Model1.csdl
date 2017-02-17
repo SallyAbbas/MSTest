@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Lemo.DAL" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="LimoEntitiesEntityFremwork" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cars" EntityType="Lemo.DAL.Car" />
+    <EntitySet Name="cities_extended" EntityType="Lemo.DAL.cities_extended" />
+    <EntitySet Name="Cities" EntityType="Lemo.DAL.City" />
+    <EntitySet Name="Companies" EntityType="Lemo.DAL.Company" />
+    <EntitySet Name="CompanyCityPrices" EntityType="Lemo.DAL.CompanyCityPrice" />
+    <EntitySet Name="ContactPersons" EntityType="Lemo.DAL.ContactPerson" />
+    <EntitySet Name="Corporates" EntityType="Lemo.DAL.Corporate" />
+    <EntitySet Name="JobStatus" EntityType="Lemo.DAL.JobStatu" />
+    <EntitySet Name="States" EntityType="Lemo.DAL.State" />
+    <EntitySet Name="sysdiagrams" EntityType="Lemo.DAL.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Lemo.DAL.User" />
+    <EntitySet Name="CarTypes" EntityType="Lemo.DAL.CarType" />
+    <EntitySet Name="Drivers" EntityType="Lemo.DAL.Driver" />
+    <EntitySet Name="DriverLocations" EntityType="Lemo.DAL.DriverLocation" />
+    <EntitySet Name="tbRates" EntityType="Lemo.DAL.tbRate" />
+    <AssociationSet Name="FK_Car_Company" Association="Lemo.DAL.FK_Car_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Driver_Car" Association="Lemo.DAL.FK_Driver_Car">
+      <End Role="Car" EntitySet="Cars" />
+      <End Role="Driver" EntitySet="Drivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cities_extended_State" Association="Lemo.DAL.FK_cities_extended_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="cities_extended" EntitySet="cities_extended" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyCityPrice_cities_extended" Association="Lemo.DAL.FK_CompanyCityPrice_cities_extended">
+      <End Role="cities_extended" EntitySet="cities_extended" />
+      <End Role="CompanyCityPrice" EntitySet="CompanyCityPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_cities_extended" Association="Lemo.DAL.FK_User_cities_extended">
+      <End Role="cities_extended" EntitySet="cities_extended" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State" Association="Lemo.DAL.FK_City_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyCityPrice_Company" Association="Lemo.DAL.FK_CompanyCityPrice_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="CompanyCityPrice" EntitySet="CompanyCityPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactPerson_Company" Association="Lemo.DAL.FK_ContactPerson_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="ContactPerson" EntitySet="ContactPersons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Driver_Company" Association="Lemo.DAL.FK_Driver_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Driver" EntitySet="Drivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Driver_JobStatus" Association="Lemo.DAL.FK_Driver_JobStatus">
+      <End Role="JobStatus" EntitySet="JobStatus" />
+      <End Role="Driver" EntitySet="Drivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_State" Association="Lemo.DAL.FK_User_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverLocation_Driver" Association="Lemo.DAL.FK_DriverLocation_Driver">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="DriverLocation" EntitySet="DriverLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbRate_Driver" Association="Lemo.DAL.FK_tbRate_Driver">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="tbRate" EntitySet="tbRates" />
+    </AssociationSet>
+    <EntitySet Name="Jobs" EntityType="Lemo.DAL.Job" />
+    <AssociationSet Name="FK_Job_Car" Association="Lemo.DAL.FK_Job_Car">
+      <End Role="Car" EntitySet="Cars" />
+      <End Role="Job" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Job_Driver" Association="Lemo.DAL.FK_Job_Driver">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="Job" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Job_JobStatus" Association="Lemo.DAL.FK_Job_JobStatus">
+      <End Role="JobStatu" EntitySet="JobStatus" />
+      <End Role="Job" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Job_User" Association="Lemo.DAL.FK_Job_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Job" EntitySet="Jobs" />
+    </AssociationSet>
+    <EntitySet Name="LogTimes" EntityType="Lemo.DAL.LogTime" />
+  </EntityContainer>
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="CarID" />
+    </Key>
+    <Property Name="CarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarName" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="NoPassengers" Type="Int32" />
+    <Property Name="PhotoName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PricePerHore" Type="Double" />
+    <Property Name="PricePerMaile" Type="Double" />
+    <Property Name="CarNumber" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Company" Relationship="Lemo.DAL.FK_Car_Company" FromRole="Car" ToRole="Company" />
+    <NavigationProperty Name="Drivers" Relationship="Lemo.DAL.FK_Driver_Car" FromRole="Car" ToRole="Driver" />
+    <NavigationProperty Name="Jobs" Relationship="Lemo.DAL.FK_Job_Car" FromRole="Car" ToRole="Job" />
+  </EntityType>
+  <EntityType Name="cities_extended">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="state_code" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="zip" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="latitude" Type="String" MaxLength="15" Unicode="false" FixedLength="true" />
+    <Property Name="longitude" Type="String" MaxLength="15" Unicode="false" FixedLength="true" />
+    <Property Name="county" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="State" Relationship="Lemo.DAL.FK_cities_extended_State" FromRole="cities_extended" ToRole="State" />
+    <NavigationProperty Name="CompanyCityPrices" Relationship="Lemo.DAL.FK_CompanyCityPrice_cities_extended" FromRole="cities_extended" ToRole="CompanyCityPrice" />
+    <NavigationProperty Name="Users" Relationship="Lemo.DAL.FK_User_cities_extended" FromRole="cities_extended" ToRole="User" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="state_code" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <NavigationProperty Name="State" Relationship="Lemo.DAL.FK_City_State" FromRole="City" ToRole="State" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CityID" Type="Int32" />
+    <Property Name="stateName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CityName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="UserName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="PricePerHour" Type="Double" />
+    <Property Name="PricePerMile" Type="Double" />
+    <Property Name="LimoAPIID" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="LimoAPIKey" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="IsSupportAllState" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="IsAvailable" Type="Boolean" />
+    <Property Name="DistancePerMile" Type="Double" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="imagePath" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="IsTop" Type="Boolean" />
+    <Property Name="TopRank" Type="Int32" />
+    <Property Name="OUR_SERVICE" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="OUR_FLEET" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="About_Us" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Contact_Us" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="State_Tax" Type="Double" />
+    <Property Name="City_Tax" Type="Double" />
+    <Property Name="OtherTax1" Type="Double" />
+    <Property Name="Tax1Note" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="OtherTax2" Type="Double" />
+    <Property Name="Tax2Note" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="IsDespath" Type="Boolean" />
+    <NavigationProperty Name="Cars" Relationship="Lemo.DAL.FK_Car_Company" FromRole="Company" ToRole="Car" />
+    <NavigationProperty Name="CompanyCityPrices" Relationship="Lemo.DAL.FK_CompanyCityPrice_Company" FromRole="Company" ToRole="CompanyCityPrice" />
+    <NavigationProperty Name="ContactPersons" Relationship="Lemo.DAL.FK_ContactPerson_Company" FromRole="Company" ToRole="ContactPerson" />
+    <NavigationProperty Name="Drivers" Relationship="Lemo.DAL.FK_Driver_Company" FromRole="Company" ToRole="Driver" />
+    <Property Type="Double" Name="Gratuity" />
+    <Property Type="String" Name="GratuityNote" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CompanyCityPrice">
+    <Key>
+      <PropertyRef Name="CompanyCityPriceID" />
+    </Key>
+    <Property Name="CompanyCityPriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityID" Type="Int32" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="cities_extended" Relationship="Lemo.DAL.FK_CompanyCityPrice_cities_extended" FromRole="CompanyCityPrice" ToRole="cities_extended" />
+    <NavigationProperty Name="Company" Relationship="Lemo.DAL.FK_CompanyCityPrice_Company" FromRole="CompanyCityPrice" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="ContactPerson">
+    <Key>
+      <PropertyRef Name="ContactPersonID" />
+    </Key>
+    <Property Name="ContactPersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="TimeFrom" Type="Double" />
+    <Property Name="TimeTo" Type="Double" />
+    <Property Name="AvailableDays" Type="Int32" />
+    <Property Name="Job" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Company" Relationship="Lemo.DAL.FK_ContactPerson_Company" FromRole="ContactPerson" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="Corporate">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="JobStatu">
+    <Key>
+      <PropertyRef Name="JobStatusID" />
+    </Key>
+    <Property Name="JobStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobStatus" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="color" Type="String" MaxLength="7" Unicode="false" FixedLength="true" />
+    <NavigationProperty Name="Drivers" Relationship="Lemo.DAL.FK_Driver_JobStatus" FromRole="JobStatus" ToRole="Driver" />
+    <NavigationProperty Name="Jobs" Relationship="Lemo.DAL.FK_Job_JobStatus" FromRole="JobStatu" ToRole="Job" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="state_code" />
+    </Key>
+    <Property Name="StateName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="state_code" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+    <NavigationProperty Name="cities_extended" Relationship="Lemo.DAL.FK_cities_extended_State" FromRole="State" ToRole="cities_extended" />
+    <NavigationProperty Name="Cities" Relationship="Lemo.DAL.FK_City_State" FromRole="State" ToRole="City" />
+    <NavigationProperty Name="Users" Relationship="Lemo.DAL.FK_User_State" FromRole="State" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="SatatID" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="CityID" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="UserName" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="Mobile" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Passwords" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="CardNumber" Type="String" MaxLength="16" Unicode="false" FixedLength="true" />
+    <Property Name="CardZipCode" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="CardAddress" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CardStateID" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="CardExpirationDate" Type="String" MaxLength="7" Unicode="false" FixedLength="true" />
+    <Property Name="CardHolderFName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="CardHolderLName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="cities_extended" Relationship="Lemo.DAL.FK_User_cities_extended" FromRole="User" ToRole="cities_extended" />
+    <NavigationProperty Name="State" Relationship="Lemo.DAL.FK_User_State" FromRole="User" ToRole="State" />
+    <NavigationProperty Name="Jobs" Relationship="Lemo.DAL.FK_Job_User" FromRole="User" ToRole="Job" />
+  </EntityType>
+  <EntityType Name="CarType">
+    <Key>
+      <PropertyRef Name="CarTypeID" />
+    </Key>
+    <Property Name="CarTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ImagePath" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="DriverID" />
+    </Key>
+    <Property Name="FName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="JobStatusID" Type="Int32" />
+    <Property Name="CarTypeID" Type="Int32" />
+    <Property Name="DeviceToken" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="DriverID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsAvailable" Type="Boolean" />
+    <Property Name="ShowOnMap" Type="Boolean" />
+    <Property Name="CarID" Type="Int32" />
+    <Property Name="DrvierImagePath" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="DeviceType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Car" Relationship="Lemo.DAL.FK_Driver_Car" FromRole="Driver" ToRole="Car" />
+    <NavigationProperty Name="Company" Relationship="Lemo.DAL.FK_Driver_Company" FromRole="Driver" ToRole="Company" />
+    <NavigationProperty Name="JobStatu" Relationship="Lemo.DAL.FK_Driver_JobStatus" FromRole="Driver" ToRole="JobStatus" />
+    <NavigationProperty Name="DriverLocations" Relationship="Lemo.DAL.FK_DriverLocation_Driver" FromRole="Driver" ToRole="DriverLocation" />
+    <NavigationProperty Name="tbRates" Relationship="Lemo.DAL.FK_tbRate_Driver" FromRole="Driver" ToRole="tbRate" />
+    <NavigationProperty Name="Jobs" Relationship="Lemo.DAL.FK_Job_Driver" FromRole="Driver" ToRole="Job" />
+  </EntityType>
+  <EntityType Name="DriverLocation">
+    <Key>
+      <PropertyRef Name="DriverLocationID" />
+    </Key>
+    <Property Name="DriverLocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Lat" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Lng" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DriverID" Type="Int32" />
+    <NavigationProperty Name="Driver" Relationship="Lemo.DAL.FK_DriverLocation_Driver" FromRole="DriverLocation" ToRole="Driver" />
+  </EntityType>
+  <EntityType Name="tbRate">
+    <Key>
+      <PropertyRef Name="RateID" />
+    </Key>
+    <Property Name="RateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverID" Type="Int32" Nullable="false" />
+    <Property Name="Rate" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Driver" Relationship="Lemo.DAL.FK_tbRate_Driver" FromRole="tbRate" ToRole="Driver" />
+  </EntityType>
+  <Association Name="FK_Car_Company">
+    <End Role="Company" Type="Lemo.DAL.Company" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Car" Type="Lemo.DAL.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Driver_Car">
+    <End Role="Car" Type="Lemo.DAL.Car" Multiplicity="0..1" />
+    <End Role="Driver" Type="Lemo.DAL.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="CarID" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="CarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cities_extended_State">
+    <End Role="State" Type="Lemo.DAL.State" Multiplicity="1" />
+    <End Role="cities_extended" Type="Lemo.DAL.cities_extended" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="state_code" />
+      </Principal>
+      <Dependent Role="cities_extended">
+        <PropertyRef Name="state_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyCityPrice_cities_extended">
+    <End Role="cities_extended" Type="Lemo.DAL.cities_extended" Multiplicity="0..1" />
+    <End Role="CompanyCityPrice" Type="Lemo.DAL.CompanyCityPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities_extended">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="CompanyCityPrice">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_cities_extended">
+    <End Role="cities_extended" Type="Lemo.DAL.cities_extended" Multiplicity="0..1" />
+    <End Role="User" Type="Lemo.DAL.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities_extended">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State">
+    <End Role="State" Type="Lemo.DAL.State" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="City" Type="Lemo.DAL.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="state_code" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="state_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyCityPrice_Company">
+    <End Role="Company" Type="Lemo.DAL.Company" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CompanyCityPrice" Type="Lemo.DAL.CompanyCityPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="CompanyCityPrice">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactPerson_Company">
+    <End Role="Company" Type="Lemo.DAL.Company" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ContactPerson" Type="Lemo.DAL.ContactPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="ContactPerson">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Driver_Company">
+    <End Role="Company" Type="Lemo.DAL.Company" Multiplicity="0..1" />
+    <End Role="Driver" Type="Lemo.DAL.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Driver_JobStatus">
+    <End Role="JobStatus" Type="Lemo.DAL.JobStatu" Multiplicity="0..1" />
+    <End Role="Driver" Type="Lemo.DAL.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobStatus">
+        <PropertyRef Name="JobStatusID" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="JobStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_State">
+    <End Role="State" Type="Lemo.DAL.State" Multiplicity="0..1" />
+    <End Role="User" Type="Lemo.DAL.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="state_code" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CardStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverLocation_Driver">
+    <End Role="Driver" Type="Lemo.DAL.Driver" Multiplicity="0..1" />
+    <End Role="DriverLocation" Type="Lemo.DAL.DriverLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="DriverLocation">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbRate_Driver">
+    <End Role="Driver" Type="Lemo.DAL.Driver" Multiplicity="1" />
+    <End Role="tbRate" Type="Lemo.DAL.tbRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="tbRate">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Type="Int32" Name="JobID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserID" />
+    <Property Type="Int32" Name="CompanyCarID" />
+    <Property Type="String" Name="FromAddress" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ToAddress" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CityID" />
+    <Property Type="Int32" Name="TimeHour" />
+    <Property Type="Int32" Name="TimeMinute" />
+    <Property Type="Double" Name="TotalPrice" />
+    <Property Type="Double" Name="EstimatedFarePrice" />
+    <Property Type="Double" Name="GratuityPrice" />
+    <Property Type="Double" Name="ProcessingFee" />
+    <Property Type="Double" Name="Taxes" />
+    <Property Type="Double" Name="OtherPrice" />
+    <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LimoConfirmNumber" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ComapnyConfirmNum" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Mobile" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="JobDate" />
+    <Property Type="String" Name="JobTime" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PriceNote" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="DriverID" />
+    <Property Type="Int32" Name="TripConfirmationNumber" />
+    <Property Type="String" Name="AuthorizationCode" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AuthorizInvoiceNumber" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="JobStatusID" />
+    <Property Type="Boolean" Name="IsDespath" />
+    <Property Type="Int32" Name="CorporateID" />
+    <Property Type="Int32" Name="JobBy" />
+    <Property Type="Int32" Name="NoPassenger" />
+    <Property Type="String" Name="FromLat" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FromLng" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ToLat" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ToLng" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Car" Relationship="Lemo.DAL.FK_Job_Car" FromRole="Job" ToRole="Car" />
+    <NavigationProperty Name="Driver" Relationship="Lemo.DAL.FK_Job_Driver" FromRole="Job" ToRole="Driver" />
+    <NavigationProperty Name="JobStatu" Relationship="Lemo.DAL.FK_Job_JobStatus" FromRole="Job" ToRole="JobStatu" />
+    <NavigationProperty Name="User" Relationship="Lemo.DAL.FK_Job_User" FromRole="Job" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Job_Car">
+    <End Type="Lemo.DAL.Car" Role="Car" Multiplicity="0..1" />
+    <End Type="Lemo.DAL.Job" Role="Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="CarID" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="CompanyCarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Job_Driver">
+    <End Type="Lemo.DAL.Driver" Role="Driver" Multiplicity="0..1" />
+    <End Type="Lemo.DAL.Job" Role="Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Job_JobStatus">
+    <End Type="Lemo.DAL.JobStatu" Role="JobStatu" Multiplicity="0..1" />
+    <End Type="Lemo.DAL.Job" Role="Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobStatu">
+        <PropertyRef Name="JobStatusID" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="JobStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Job_User">
+    <End Type="Lemo.DAL.User" Role="User" Multiplicity="0..1" />
+    <End Type="Lemo.DAL.Job" Role="Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LogTime">
+    <Key>
+      <PropertyRef Name="LogTimeId" />
+    </Key>
+    <Property Type="Int32" Name="LogTimeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="DriverId" />
+    <Property Type="String" Name="Lat" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Lng" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="JobStatusId" />
+    <Property Type="DateTime" Name="LogTime1" />
+    <Property Type="Int32" Name="JobId" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,43 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="tooltip.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".container[title]").tooltip();
+        });
+    </script>
+    
+    <style>
+        .tooltip
+        {
+            display: none;
+            background: transparent url(http://flowplayer.org/tools/img/tooltip/black_arrow.png);
+            font-size: 12px;
+            height: 70px;
+            width: 160px;
+            padding: 25px;
+            color: #fff;
+        }
+        .container
+        {
+            border:solid 1px red;
+            background-color:gray;
+            margin:3px 3px 3px 3px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:Repeater ID="DataList1" runat="server">
+        <ItemTemplate>
+            <div class="container" title='<%#Eval("album_name")%>' >
+                <img src='<%#Eval("photo_file_name")%>' />
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+    </form>
+</body>
+</html>

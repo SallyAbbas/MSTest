@@ -1,0 +1,1519 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC8FB852-EF4D-49B3-9614-768CF3AB67BB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lemo</RootNamespace>
+    <AssemblyName>Lemo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AuthorizeNet.dll</HintPath>
+    </Reference>
+    <Reference Include="AuthorizeNet.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AuthorizeNet.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Controls\Settle.ascx" />
+    <Content Include="Admin\Controls\ManageSettle.ascx" />
+    <Content Include="Admin\Pages\AddCorporate.aspx" />
+    <Content Include="Admin\Pages\Despatch.aspx" />
+    <Content Include="Admin\Pages\ManageCorporate.aspx" />
+    <Content Include="Admin\Pages\Settle.aspx" />
+    <Content Include="Admin\Pages\ManageSettle.aspx" />
+    <Content Include="AppImages\company\cars\KnownCars\bmw.png" />
+    <Content Include="AppImages\company\cars\KnownCars\cadilac.png" />
+    <Content Include="AppImages\company\cars\KnownCars\mercedes.png" />
+    <Content Include="AppImages\company\cars\KnownCars\mini bus.png" />
+    <Content Include="Controls\AirportsLinks.ascx" />
+    <Content Include="Image\Airports\addisonairport.PNG" />
+    <Content Include="Image\Airports\Alamogordo.PNG" />
+    <Content Include="Image\Airports\AlbanyInternatioalAirport.PNG" />
+    <Content Include="Image\Airports\AlbuquerqueInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Allentown.PNG" />
+    <Content Include="Image\Airports\Amarillo.PNG" />
+    <Content Include="Image\Airports\AnchorageInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Ashville.PNG" />
+    <Content Include="Image\Airports\Aspen.PNG" />
+    <Content Include="Image\Airports\AtlantaHartsfieldInternationalAirport.PNG" />
+    <Content Include="Image\Airports\AtlanticCityInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Augusta.PNG" />
+    <Content Include="Image\Airports\AustinBergstromInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Baltimore.PNG" />
+    <Content Include="Image\Airports\Bangor.PNG" />
+    <Content Include="Image\Airports\BatonRouge.PNG" />
+    <Content Include="Image\Airports\Battlecreek.PNG" />
+    <Content Include="Image\Airports\Billings.PNG" />
+    <Content Include="Image\Airports\BirminghamInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Bismark.PNG" />
+    <Content Include="Image\Airports\Boise.PNG" />
+    <Content Include="Image\Airports\Boston,LoganInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Bristol.PNG" />
+    <Content Include="Image\Airports\Buffalo.PNG" />
+    <Content Include="Image\Airports\Burbank.PNG" />
+    <Content Include="Image\Airports\burkelakefront.PNG" />
+    <Content Include="Image\Airports\Burlington.PNG" />
+    <Content Include="Image\Airports\Casper.PNG" />
+    <Content Include="Image\Airports\CedarRapids.PNG" />
+    <Content Include="Image\Airports\Charleston.PNG" />
+    <Content Include="Image\Airports\Chatanooga.PNG" />
+    <Content Include="Image\Airports\Cheyenne.PNG" />
+    <Content Include="Image\Airports\ChicagoMidwayAirport.PNG" />
+    <Content Include="Image\Airports\ChicagoO%27HareInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Cincinnati.PNG" />
+    <Content Include="Image\Airports\Clarksburg.PNG" />
+    <Content Include="Image\Airports\Cleveland.PNG" />
+    <Content Include="Image\Airports\ColoradoSprings.PNG" />
+    <Content Include="Image\Airports\Columbia.PNG" />
+    <Content Include="Image\Airports\CorpusChristi.PNG" />
+    <Content Include="Image\Airports\DallasFortWorthInternationalAirport.PNG" />
+    <Content Include="Image\Airports\DallasLoveFieldAirport.PNG" />
+    <Content Include="Image\Airports\Dayton.PNG" />
+    <Content Include="Image\Airports\DaytonaBeach.PNG" />
+    <Content Include="Image\Airports\DenverInternationalAirport.PNG" />
+    <Content Include="Image\Airports\DesMoines.PNG" />
+    <Content Include="Image\Airports\Detroit.PNG" />
+    <Content Include="Image\Airports\DetroitMetropolitanAirport.PNG" />
+    <Content Include="Image\Airports\DothanRegionalAirport.PNG" />
+    <Content Include="Image\Airports\DouglasInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Duluth.PNG" />
+    <Content Include="Image\Airports\ElPaso.PNG" />
+    <Content Include="Image\Airports\Erie.PNG" />
+    <Content Include="Image\Airports\Eugene.PNG" />
+    <Content Include="Image\Airports\Evansville.PNG" />
+    <Content Include="Image\Airports\FairbanksInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Fargo.PNG" />
+    <Content Include="Image\Airports\Fayetteville.PNG" />
+    <Content Include="Image\Airports\Flagstaff.PNG" />
+    <Content Include="Image\Airports\Flint.PNG" />
+    <Content Include="Image\Airports\FortLauderdale-HollywoodInternationalAirport.PNG" />
+    <Content Include="Image\Airports\FortMeyers.PNG" />
+    <Content Include="Image\Airports\FortWayne.PNG" />
+    <Content Include="Image\Airports\Fresno.PNG" />
+    <Content Include="Image\Airports\GrandJunction.PNG" />
+    <Content Include="Image\Airports\GrandRapids.PNG" />
+    <Content Include="Image\Airports\GreenBay.PNG" />
+    <Content Include="Image\Airports\Greensboro.PNG" />
+    <Content Include="Image\Airports\Greenville.PNG" />
+    <Content Include="Image\Airports\Gulfport.PNG" />
+    <Content Include="Image\Airports\Harrisburg.PNG" />
+    <Content Include="Image\Airports\Hartford.PNG" />
+    <Content Include="Image\Airports\Hilo.PNG" />
+    <Content Include="Image\Airports\HonoluluInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Houston,GeorgeBushIntercontinentalAirport.PNG" />
+    <Content Include="Image\Airports\Houston,WilliamBHobbyAirport.PNG" />
+    <Content Include="Image\Airports\HuntsvilleInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Hyannis.PNG" />
+    <Content Include="Image\Airports\Indianapolis International Airport.PNG" />
+    <Content Include="Image\Airports\Islip.PNG" />
+    <Content Include="Image\Airports\Jackson Hole.PNG" />
+    <Content Include="Image\Airports\Jacksonville.PNG" />
+    <Content Include="Image\Airports\Juneau International Airport.PNG" />
+    <Content Include="Image\Airports\Kahului.PNG" />
+    <Content Include="Image\Airports\Kailua.PNG" />
+    <Content Include="Image\Airports\Kalamazoo-Battle Creek International Airport.PNG" />
+    <Content Include="Image\Airports\Kansas City.PNG" />
+    <Content Include="Image\Airports\Knoxville.PNG" />
+    <Content Include="Image\Airports\Lansing.PNG" />
+    <Content Include="Image\Airports\Las Vegas, Las Vegas McCarran International Airport.PNG" />
+    <Content Include="Image\Airports\Lexington.PNG" />
+    <Content Include="Image\Airports\Lihue.PNG" />
+    <Content Include="Image\Airports\Little Rock National Airport.PNG" />
+    <Content Include="Image\Airports\Long Beach.PNG" />
+    <Content Include="Image\Airports\Los Angeles International Airport.PNG" />
+    <Content Include="Image\Airports\Louisville.PNG" />
+    <Content Include="Image\Airports\Lubbock.PNG" />
+    <Content Include="Image\Airports\Madison.PNG" />
+    <Content Include="Image\Airports\Manchester.PNG" />
+    <Content Include="Image\Airports\MCO - ORLANDO INTL AIRPORT.PNG" />
+    <Content Include="Image\Airports\Memphis.PNG" />
+    <Content Include="Image\Airports\Miami International Airport.PNG" />
+    <Content Include="Image\Airports\Milwaukee.PNG" />
+    <Content Include="Image\Airports\Minneapolis.PNG" />
+    <Content Include="Image\Airports\Mobile.PNG" />
+    <Content Include="Image\Airports\Moline.PNG" />
+    <Content Include="Image\Airports\Montgomery.PNG" />
+    <Content Include="Image\Airports\Montpelier.PNG" />
+    <Content Include="Image\Airports\Myrtle Beach.PNG" />
+    <Content Include="Image\Airports\Nantucket.PNG" />
+    <Content Include="Image\Airports\Nashville.PNG" />
+    <Content Include="Image\Airports\New Orleans International Airport.PNG" />
+    <Content Include="Image\Airports\New York, John F Kennedy International Airport.PNG" />
+    <Content Include="Image\Airports\Newark International Airport.PNG" />
+    <Content Include="Image\Airports\Newburgh.PNG" />
+    <Content Include="Image\Airports\Newport News.PNG" />
+    <Content Include="Image\Airports\Norfolk.PNG" />
+    <Content Include="Image\Airports\Oakland.PNG" />
+    <Content Include="Image\Airports\Oklahoma City.PNG" />
+    <Content Include="Image\Airports\Omaha.PNG" />
+    <Content Include="Image\Airports\Ontario.PNG" />
+    <Content Include="Image\Airports\Palm Springs.PNG" />
+    <Content Include="Image\Airports\Panama City-Bay County International Airport.PNG" />
+    <Content Include="Image\Airports\Pensacola.PNG" />
+    <Content Include="Image\Airports\Peoria.PNG" />
+    <Content Include="Image\Airports\Philadelphia.PNG" />
+    <Content Include="Image\Airports\Phoenix, Phoenix Sky Harbor International Airport.PNG" />
+    <Content Include="Image\Airports\Pittsburgh.PNG" />
+    <Content Include="Image\Airports\Portland International Airport.PNG" />
+    <Content Include="Image\Airports\Portland, Hillsboro Airport.PNG" />
+    <Content Include="Image\Airports\Portland.PNG" />
+    <Content Include="Image\Airports\Raleigh.PNG" />
+    <Content Include="Image\Airports\Rapid City.PNG" />
+    <Content Include="Image\Airports\Reno-Tahoe International Airport.PNG" />
+    <Content Include="Image\Airports\Richmond.PNG" />
+    <Content Include="Image\Airports\Roanoke.PNG" />
+    <Content Include="Image\Airports\Rochester.PNG" />
+    <Content Include="Image\Airports\Rock Springs.PNG" />
+    <Content Include="Image\Airports\Rutland.PNG" />
+    <Content Include="Image\Airports\Sacramento.PNG" />
+    <Content Include="Image\Airports\Saginaw.PNG" />
+    <Content Include="Image\Airports\Salem.PNG" />
+    <Content Include="Image\Airports\Salt Lake City.PNG" />
+    <Content Include="Image\Airports\San Antonio International Airport.PNG" />
+    <Content Include="Image\Airports\San Diego.PNG" />
+    <Content Include="Image\Airports\San Francisco International Airport.PNG" />
+    <Content Include="Image\Airports\San Jose.PNG" />
+    <Content Include="Image\Airports\Santa Ana.PNG" />
+    <Content Include="Image\Airports\Sarasota.PNG" />
+    <Content Include="Image\Airports\Savannah.PNG" />
+    <Content Include="Image\Airports\Scranton.PNG" />
+    <Content Include="Image\Airports\Seattle, Tacoma International Airport.PNG" />
+    <Content Include="Image\Airports\Shreveport.PNG" />
+    <Content Include="Image\Airports\Sioux Falls.PNG" />
+    <Content Include="Image\Airports\South Bend.PNG" />
+    <Content Include="Image\Airports\Spokane International Airport.PNG" />
+    <Content Include="Image\Airports\Springfield.PNG" />
+    <Content Include="Image\Airports\St.Petersburg.PNG" />
+    <Content Include="Image\Airports\StLouis,LambertInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Syracuse.PNG" />
+    <Content Include="Image\Airports\Tampa.PNG" />
+    <Content Include="Image\Airports\teterboroairport.PNG" />
+    <Content Include="Image\Airports\Toledo.PNG" />
+    <Content Include="Image\Airports\Trenton.PNG" />
+    <Content Include="Image\Airports\TucsonInternationalAirport.PNG" />
+    <Content Include="Image\Airports\Tulsa.PNG" />
+    <Content Include="Image\Airports\Washington,DullesInternationalAirport.PNG" />
+    <Content Include="Image\Airports\WashingtonNationalAirport.PNG" />
+    <Content Include="Image\Airports\Westchester.PNG" />
+    <Content Include="Image\Airports\WestPalmBeach.PNG" />
+    <Content Include="Image\Airports\Wichita.PNG" />
+    <Content Include="Image\Airports\Winston-Salem.PNG" />
+    <Content Include="Image\Airports\YumaInternationalAirport.PNG" />
+    <Content Include="Image\BlueTopCompany.png" />
+    <Content Include="Admin\Controls\AddCompany.ascx" />
+    <Content Include="Admin\Controls\AddContactPerson.ascx" />
+    <Content Include="Admin\Controls\AddNewCar.ascx" />
+    <Content Include="Admin\Controls\CompanyInformation.ascx" />
+    <Content Include="Admin\Controls\Driver.ascx" />
+    <Content Include="Admin\Controls\Login.ascx" />
+    <Content Include="Admin\Controls\ManageAroundCities.ascx" />
+    <Content Include="Admin\Controls\ManageReservation.ascx" />
+    <Content Include="Admin\Controls\Reservation.ascx" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\Pages\AddCar.aspx" />
+    <Content Include="Admin\Pages\AddCompany.aspx" />
+    <Content Include="Admin\Pages\AddContactPerspn.aspx" />
+    <Content Include="Admin\Pages\CompanyProfile.aspx" />
+    <Content Include="Admin\Pages\Driver.aspx" />
+    <Content Include="Admin\Pages\EditCar.aspx" />
+    <Content Include="Admin\Pages\EditCompany.aspx" />
+    <Content Include="Admin\Pages\EditContactPerson.aspx" />
+    <Content Include="Admin\Pages\LimoAnyWereSteps.aspx" />
+    <Content Include="Admin\Pages\Login.aspx" />
+    <Content Include="Admin\Pages\ManageCars.aspx" />
+    <Content Include="Admin\Pages\ManageCompany.aspx" />
+    <Content Include="Admin\Pages\ManageContactPerson.aspx" />
+    <Content Include="Admin\Pages\ManageDrivers.aspx" />
+    <Content Include="Admin\Pages\ManageReservation.aspx" />
+    <Content Include="Admin\Pages\Reservation.aspx" />
+    <Content Include="Admin\Pages\ServiceArea.aspx" />
+    <Content Include="Admin\Pages\TopCompanies.aspx" />
+    <Content Include="AppImages\company\cars\KnownCars\BUS.png" />
+    <Content Include="AppImages\company\cars\KnownCars\minibus.png" />
+    <Content Include="AppImages\company\cars\KnownCars\Sedan.png" />
+    <Content Include="AppImages\company\cars\KnownCars\Stretch Limo.png" />
+    <Content Include="AppImages\company\cars\KnownCars\Stretch SUV.png" />
+    <Content Include="AppImages\company\cars\KnownCars\suv.png" />
+    <Content Include="AppImages\company\cars\KnownCars\van.png" />
+    <Content Include="Controls\BookEngine.ascx" />
+    <Content Include="Controls\FeesDetais.ascx" />
+    <Content Include="Controls\LoginControl.ascx" />
+    <Content Include="Controls\MapForLiveReservation.ascx" />
+    <Content Include="Controls\ReservationFees.ascx" />
+    <Content Include="Controls\ResevationInformation.ascx" />
+    <Content Include="Controls\SignupControl.ascx" />
+    <Content Include="google9b98a1a636b95dd0.html" />
+    <Content Include="Image\1px.png" />
+    <Content Include="Image\AddcontactPerson.png" />
+    <Content Include="Image\addDriver.png" />
+    <Content Include="Image\AddNewCar.png" />
+    <Content Include="Image\american_exp_logo.gif" />
+    <Content Include="Image\appshover.png" />
+    <Content Include="Image\bar.png" />
+    <Content Include="Image\bgoftext.png" />
+    <Content Include="Image\BlueCar.png" />
+    <Content Include="Image\btnContinue.png" />
+    <Content Include="Image\btnContinueCorportAccount.png" />
+    <Content Include="Image\btnshover.png" />
+    <Content Include="Image\car1.png" />
+    <Content Include="Image\car2.png" />
+    <Content Include="Image\car3.png" />
+    <Content Include="Image\Cars\BD-features.png" />
+    <Content Include="Image\Cars\BD.png" />
+    <Content Include="Image\Cars\Large\bmw.png" />
+    <Content Include="Image\Cars\Large\BUS.png" />
+    <Content Include="Image\Cars\Large\cadilac.png" />
+    <Content Include="Image\Cars\Large\mercedes.png" />
+    <Content Include="Image\Cars\Large\mini bus.png" />
+    <Content Include="Image\Cars\Large\Sedan.png" />
+    <Content Include="Image\Cars\Large\Stretch Limo.png" />
+    <Content Include="Image\Cars\Large\Stretch SUV.png" />
+    <Content Include="Image\Cars\Large\suv.png" />
+    <Content Include="Image\Cars\Large\van.png" />
+    <Content Include="Image\Cars\LX-features.png" />
+    <Content Include="Image\Cars\LX.png" />
+    <Content Include="Image\Cars\ME-features.png" />
+    <Content Include="Image\Cars\ME.png" />
+    <Content Include="Image\Cars\S6-features.png" />
+    <Content Include="Image\Cars\S6.png" />
+    <Content Include="Image\Cars\Small\bmw.png" />
+    <Content Include="Image\Cars\Small\BUS.png" />
+    <Content Include="Image\Cars\Small\cadilac.png" />
+    <Content Include="Image\Cars\Small\mercedes.png" />
+    <Content Include="Image\Cars\Small\minibus.png" />
+    <Content Include="Image\Cars\Small\Sedan.png" />
+    <Content Include="Image\Cars\Small\Stretch Limo.png" />
+    <Content Include="Image\Cars\Small\Stretch SUV.png" />
+    <Content Include="Image\Cars\Small\suv.png" />
+    <Content Include="Image\Cars\Small\van.png" />
+    <Content Include="Image\Cars\SUV6-features.png" />
+    <Content Include="Image\Cars\SUV6.png" />
+    <Content Include="Image\Cars\VIP-features.png" />
+    <Content Include="Image\Cars\VIP.png" />
+    <Content Include="Image\Cars\VN-features.png" />
+    <Content Include="Image\Cars\VN.png" />
+    <Content Include="Image\ConfirmBooking.png" />
+    <Content Include="Image\Details.png" />
+    <Content Include="Image\direct_club_logo.gif" />
+    <Content Include="Image\discover_logo.gif" />
+    <Content Include="Image\Email\1.png" />
+    <Content Include="Image\Email\2.PNG" />
+    <Content Include="Image\Email\3.png" />
+    <Content Include="Image\Email\4.png" />
+    <Content Include="Image\Email\5.png" />
+    <Content Include="Image\Email\ConfirmationEmail.png" />
+    <Content Include="Image\HImage2.jpg" />
+    <Content Include="Image\HImage1.jpg" />
+    <Content Include="Image\HImage3.jpg" />
+    <Content Include="Image\icon_error.gif" />
+    <Content Include="Image\loginbtn.png" />
+    <Content Include="Image\logo.png" />
+    <Content Include="Image\master_logo.gif" />
+    <Content Include="Image\OrangeCar.png" />
+    <Content Include="Image\Passenger\1.png" />
+    <Content Include="Image\Passenger\10.png" />
+    <Content Include="Image\Passenger\11.png" />
+    <Content Include="Image\Passenger\12.png" />
+    <Content Include="Image\Passenger\13.png" />
+    <Content Include="Image\Passenger\14.png" />
+    <Content Include="Image\Passenger\15.png" />
+    <Content Include="Image\Passenger\16.png" />
+    <Content Include="Image\Passenger\17.png" />
+    <Content Include="Image\Passenger\18.png" />
+    <Content Include="Image\Passenger\19.png" />
+    <Content Include="Image\Passenger\2.png" />
+    <Content Include="Image\Passenger\20.png" />
+    <Content Include="Image\Passenger\21.png" />
+    <Content Include="Image\Passenger\22.png" />
+    <Content Include="Image\Passenger\23.png" />
+    <Content Include="Image\Passenger\24.png" />
+    <Content Include="Image\Passenger\25.png" />
+    <Content Include="Image\Passenger\26.png" />
+    <Content Include="Image\Passenger\27.png" />
+    <Content Include="Image\Passenger\28.png" />
+    <Content Include="Image\Passenger\29.png" />
+    <Content Include="Image\Passenger\3.png" />
+    <Content Include="Image\Passenger\30.png" />
+    <Content Include="Image\Passenger\31.png" />
+    <Content Include="Image\Passenger\32.png" />
+    <Content Include="Image\Passenger\33.png" />
+    <Content Include="Image\Passenger\34.png" />
+    <Content Include="Image\Passenger\35.png" />
+    <Content Include="Image\Passenger\36.png" />
+    <Content Include="Image\Passenger\37.png" />
+    <Content Include="Image\Passenger\38.png" />
+    <Content Include="Image\Passenger\39.png" />
+    <Content Include="Image\Passenger\4.png" />
+    <Content Include="Image\Passenger\40.png" />
+    <Content Include="Image\Passenger\41.png" />
+    <Content Include="Image\Passenger\42.png" />
+    <Content Include="Image\Passenger\43.png" />
+    <Content Include="Image\Passenger\44.png" />
+    <Content Include="Image\Passenger\45.png" />
+    <Content Include="Image\Passenger\46.png" />
+    <Content Include="Image\Passenger\47.png" />
+    <Content Include="Image\Passenger\48.png" />
+    <Content Include="Image\Passenger\49.png" />
+    <Content Include="Image\Passenger\5.png" />
+    <Content Include="Image\Passenger\50.png" />
+    <Content Include="Image\Passenger\6.png" />
+    <Content Include="Image\Passenger\7.png" />
+    <Content Include="Image\Passenger\8.png" />
+    <Content Include="Image\Passenger\9.png" />
+    <Content Include="Image\Passenger\Bag.png" />
+    <Content Include="Image\Passenger\Passenger.png" />
+    <Content Include="Image\paypal_icon.jpg" />
+    <Content Include="Image\question.png" />
+    <Content Include="Image\rightcorner.png" />
+    <Content Include="Image\Save.png" />
+    <Content Include="Image\signupbtn.png" />
+    <Content Include="Image\stats\Albuquerque.jpg" />
+    <Content Include="Image\stats\Anchorage.jpg" />
+    <Content Include="Image\stats\Atlanta.jpg" />
+    <Content Include="Image\stats\Atlantic.jpg" />
+    <Content Include="Image\stats\Austin.jpg" />
+    <Content Include="Image\stats\Baltimore.jpg" />
+    <Content Include="Image\stats\Baton Rouge.jpg" />
+    <Content Include="Image\stats\Boston.jpg" />
+    <Content Include="Image\stats\Charlotte.jpg" />
+    <Content Include="Image\stats\Chicago.jpg" />
+    <Content Include="Image\stats\Cincinnati.jpg" />
+    <Content Include="Image\stats\Cleveland.jpg" />
+    <Content Include="Image\stats\Columbus.jpg" />
+    <Content Include="Image\stats\Dallas.jpg" />
+    <Content Include="Image\stats\Denver.jpg" />
+    <Content Include="Image\stats\Detroit.jpg" />
+    <Content Include="Image\stats\Fort Lauderdale.jpg" />
+    <Content Include="Image\stats\Honolulu.jpg" />
+    <Content Include="Image\stats\Houston.jpg" />
+    <Content Include="Image\stats\Indianapolis.jpg" />
+    <Content Include="Image\stats\Jacksonville Florida.jpg" />
+    <Content Include="Image\stats\Key West.jpg" />
+    <Content Include="Image\stats\Las Vegas.jpg" />
+    <Content Include="Image\stats\Miami.jpg" />
+    <Content Include="Image\stats\Milwaukee.jpg" />
+    <Content Include="Image\stats\Minneapolis.jpg" />
+    <Content Include="Image\stats\Nashville.jpg" />
+    <Content Include="Image\stats\New York.jpg" />
+    <Content Include="Image\stats\Newark.jpg" />
+    <Content Include="Image\stats\Orlando.jpg" />
+    <Content Include="Image\stats\Philadelphia.jpg" />
+    <Content Include="Image\stats\Phoenix.jpg" />
+    <Content Include="Image\stats\Pittsburgh.jpg" />
+    <Content Include="Image\stats\Portland.jpg" />
+    <Content Include="Image\stats\Sacramento.jpg" />
+    <Content Include="Image\stats\Salt Lake.jpg" />
+    <Content Include="Image\stats\San Antonio.jpg" />
+    <Content Include="Image\stats\San Diego.jpg" />
+    <Content Include="Image\stats\San Francisco.jpg" />
+    <Content Include="Image\stats\Seattle.jpg" />
+    <Content Include="Image\stats\St Louis.jpg" />
+    <Content Include="Image\stats\Syracuse.jpg" />
+    <Content Include="Image\stats\Tampa.jpg" />
+    <Content Include="Image\stats\Untitled-1.jpg" />
+    <Content Include="Image\stats\Washington Dc.jpg" />
+    <Content Include="Image\stats\West Palm Beach.jpg" />
+    <Content Include="Image\subleftcorner.png" />
+    <Content Include="Image\subrightcorner.png" />
+    <Content Include="Image\topleftcorner.png" />
+    <Content Include="Image\visa_logo.gif" />
+    <Content Include="Image\whitebar.png" />
+    <Content Include="Image\whitebarwhitebar.png" />
+    <Content Include="Image\whiteleftcornerbottom.png" />
+    <Content Include="Image\whiterightcornerbottom.png" />
+    <Content Include="Image\APILimoanywere.jpg" />
+    <Content Include="Image\yellowbtn.png" />
+    <Content Include="NewStyle\images\1.png" />
+    <Content Include="NewStyle\images\2.jpg" />
+    <Content Include="NewStyle\images\2.png" />
+    <Content Include="NewStyle\images\2cars.png" />
+    <Content Include="NewStyle\images\header.png" />
+    <Content Include="NewStyle\images\logo.png" />
+    <Content Include="NewStyle\images\page.jpeg" />
+    <Content Include="NewStyle\jquery.js" />
+    <Content Include="NewStyle\script.js" />
+    <Content Include="NewStyle\script.responsive.js" />
+    <Content Include="NewStyle\style.css" />
+    <Content Include="NewStyle\style.ie7.css" />
+    <Content Include="NewStyle\style.responsive.css" />
+    <Content Include="Pages\Airports\addisonairport.aspx" />
+    <Content Include="Pages\Airports\Alamogordo.aspx" />
+    <Content Include="Pages\Airports\AlbanyInternatioalAirport.aspx" />
+    <Content Include="Pages\Airports\AlbuquerqueInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\Allentown.aspx" />
+    <Content Include="Pages\Airports\Amarillo.aspx" />
+    <Content Include="Pages\Airports\AnchorageInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\Ashville.aspx" />
+    <Content Include="Pages\Airports\Aspen.aspx" />
+    <Content Include="Pages\Airports\AtlantaHartsfieldInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\AtlanticCityInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\Augusta.aspx" />
+    <Content Include="Pages\Airports\AustinBergstromInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\Baltimore.aspx" />
+    <Content Include="Pages\Airports\Bangor.aspx" />
+    <Content Include="Pages\Airports\BatonRouge.aspx" />
+    <Content Include="Pages\Airports\Battlecreek.aspx" />
+    <Content Include="Pages\Airports\Billings.aspx" />
+    <Content Include="Pages\Airports\BirminghamInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\Bismark.aspx" />
+    <Content Include="Pages\Airports\Boise.aspx" />
+    <Content Include="Pages\Airports\Boston,LoganInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\Bristol.aspx" />
+    <Content Include="Pages\Airports\Buffalo.aspx" />
+    <Content Include="Pages\Airports\Burbank.aspx" />
+    <Content Include="Pages\Airports\burkelakefront.aspx" />
+    <Content Include="Pages\Airports\Burlington.aspx" />
+    <Content Include="Pages\Airports\Casper.aspx" />
+    <Content Include="Pages\Airports\CedarRapids.aspx" />
+    <Content Include="Pages\Airports\Charleston.aspx" />
+    <Content Include="Pages\Airports\Chatanooga.aspx" />
+    <Content Include="Pages\Airports\Cheyenne.aspx" />
+    <Content Include="Pages\Airports\ChicagoMidwayAirport.aspx" />
+    <Content Include="Pages\Airports\ChicagoO%27HareInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\Cincinnati.aspx" />
+    <Content Include="Pages\Airports\Clarksburg.aspx" />
+    <Content Include="Pages\Airports\Cleveland.aspx" />
+    <Content Include="Pages\Airports\ColoradoSprings.aspx" />
+    <Content Include="Pages\Airports\Columbia.aspx" />
+    <Content Include="Pages\Airports\CorpusChristi.aspx" />
+    <Content Include="Pages\Airports\DallasFortWorthInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\DallasLoveFieldAirport.aspx" />
+    <Content Include="Pages\Airports\Dayton.aspx" />
+    <Content Include="Pages\Airports\DaytonaBeach.aspx" />
+    <Content Include="Pages\Airports\DenverInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\DesMoines.aspx" />
+    <Content Include="Pages\Airports\Detroit.aspx" />
+    <Content Include="Pages\Airports\DetroitMetropolitanAirport.aspx" />
+    <Content Include="Pages\Airports\DothanRegionalAirport.aspx" />
+    <Content Include="Pages\Airports\DouglasInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\Duluth.aspx" />
+    <Content Include="Pages\Airports\ElPaso.aspx" />
+    <Content Include="Pages\Airports\Erie.aspx" />
+    <Content Include="Pages\Airports\Eugene.aspx" />
+    <Content Include="Pages\Airports\Evansville.aspx" />
+    <Content Include="Pages\Airports\FairbanksInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\Fargo.aspx" />
+    <Content Include="Pages\Airports\Fayetteville.aspx" />
+    <Content Include="Pages\Airports\Flagstaff.aspx" />
+    <Content Include="Pages\Airports\Flint.aspx" />
+    <Content Include="Pages\Airports\FortLauderdale-HollywoodInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\FortMeyers.aspx" />
+    <Content Include="Pages\Airports\FortWayne.aspx" />
+    <Content Include="Pages\Airports\Fresno.aspx" />
+    <Content Include="Pages\Airports\GrandJunction.aspx" />
+    <Content Include="Pages\Airports\GrandRapids.aspx" />
+    <Content Include="Pages\Airports\GreenBay.aspx" />
+    <Content Include="Pages\Airports\Greensboro.aspx" />
+    <Content Include="Pages\Airports\Greenville.aspx" />
+    <Content Include="Pages\Airports\Gulfport.aspx" />
+    <Content Include="Pages\Airports\Harrisburg.aspx" />
+    <Content Include="Pages\Airports\Hartford.aspx" />
+    <Content Include="Pages\Airports\Hilo.aspx" />
+    <Content Include="Pages\Airports\HonoluluInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\Houston,GeorgeBushIntercontinentalAirport.aspx" />
+    <Content Include="Pages\Airports\Houston,WilliamBHobbyAirport.aspx" />
+    <Content Include="Pages\Airports\HuntsvilleInternationalAirport.aspx" />
+    <Content Include="Pages\Airports\Hyannis.aspx" />
+    <Content Include="Pages\CompanySignup.aspx" />
+    <Content Include="Pages\CompleteReservation.aspx" />
+    <Content Include="Pages\CorporatePayment.aspx" />
+    <Content Include="Pages\CustomerSupport.aspx" />
+    <Content Include="Pages\JobDetails.aspx" />
+    <Content Include="Pages\LiveReservation.aspx" />
+    <Content Include="Pages\Login.aspx" />
+    <Content Include="Pages\ManageReservation.aspx" />
+    <Content Include="Pages\MyAccount.aspx" />
+    <Content Include="Pages\MyReservation.aspx" />
+    <Content Include="Pages\Payment.aspx" />
+    <Content Include="Pages\Register.aspx" />
+    <Content Include="Pages\Reservation.aspx" />
+    <Content Include="Pages\Signup.aspx" />
+    <Content Include="Pages\States\Albuquerque.aspx" />
+    <Content Include="Pages\States\Anchorage.aspx" />
+    <Content Include="Pages\States\Atlanta.aspx" />
+    <Content Include="Pages\States\Atlantic.aspx" />
+    <Content Include="Pages\States\Austin.aspx" />
+    <Content Include="Pages\States\Baltimore.aspx" />
+    <Content Include="Pages\States\BatonRouge.aspx" />
+    <Content Include="Pages\States\Boston.aspx" />
+    <Content Include="Pages\States\Charlotte.aspx" />
+    <Content Include="Pages\States\Chicago.aspx" />
+    <Content Include="Pages\States\Cincinnati.aspx" />
+    <Content Include="Pages\States\Cleveland.aspx" />
+    <Content Include="Pages\States\Columbus.aspx" />
+    <Content Include="Pages\States\Dallas.aspx" />
+    <Content Include="Pages\States\Denver.aspx" />
+    <Content Include="Pages\States\Detroit.aspx" />
+    <Content Include="Pages\States\FortLauderdale.aspx" />
+    <Content Include="Pages\States\FortMyers.aspx" />
+    <Content Include="Pages\States\Honolulu.aspx" />
+    <Content Include="Pages\States\Houston.aspx" />
+    <Content Include="Pages\States\Indianapolis.aspx" />
+    <Content Include="Pages\States\JacksonvilleFlorida.aspx" />
+    <Content Include="Pages\States\KeyWest.aspx" />
+    <Content Include="Pages\States\LasVegas.aspx" />
+    <Content Include="Pages\States\LosAngeles.aspx" />
+    <Content Include="Pages\States\Miami.aspx" />
+    <Content Include="Pages\States\Milwaukee.aspx" />
+    <Content Include="Pages\States\Minneapolis.aspx" />
+    <Content Include="Pages\States\Nashville.aspx" />
+    <Content Include="Pages\States\Newark.aspx" />
+    <Content Include="Pages\States\NewOrleans.aspx" />
+    <Content Include="Pages\States\NewYork.aspx" />
+    <Content Include="Pages\States\Orlando.aspx" />
+    <Content Include="Pages\States\Philadelphia.aspx" />
+    <Content Include="Pages\States\Phoenix.aspx" />
+    <Content Include="Pages\States\Pittsburgh.aspx" />
+    <Content Include="Pages\States\Portland.aspx" />
+    <Content Include="Pages\States\Sacramento.aspx" />
+    <Content Include="Pages\States\SaltLake.aspx" />
+    <Content Include="Pages\States\SanAntonio.aspx" />
+    <Content Include="Pages\States\SanDiego.aspx" />
+    <Content Include="Pages\States\SanFrancisco.aspx" />
+    <Content Include="Pages\States\Seattle.aspx" />
+    <Content Include="Pages\States\StLouis.aspx" />
+    <Content Include="Pages\States\Syracuse.aspx" />
+    <Content Include="Pages\States\Tampa.aspx" />
+    <Content Include="Pages\States\WashingtonDc.aspx" />
+    <Content Include="Pages\States\WestPalmBeach.aspx" />
+    <Content Include="Pages\TermsConditions.aspx" />
+    <Content Include="Pages\WhyLimoAllOver.aspx" />
+    <Content Include="Scripts\ab-get-distance.js" />
+    <Content Include="Scripts\crawler.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery.watermark.min.js" />
+    <Content Include="Admin\AdminMaster.Master" />
+    <Content Include="Handlers\MapMarker.ashx" />
+    <Content Include="Pages\States\Master\StateMaster.master" />
+    <Content Include="Pages\Airports\Master\AirportMaster.master" />
+    <EntityDeploy Include="DAL\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\API_Serv\ApiService.disco" />
+    <None Include="Service References\API_Serv\configuration91.svcinfo" />
+    <None Include="Service References\API_Serv\configuration.svcinfo" />
+    <None Include="Service References\API_Serv\Lemo.API_Serv.AccountInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.AccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.AddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.AgentInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.AirlineResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.AirportInstrInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.AirportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.ApiServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.CarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.ConfNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.CountryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.CreditCardResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.CustomerLoyaltyInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.DateTimeInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.DriverResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.FBOResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.FullRideResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.OccasionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.POIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.RateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.RatesMappingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.ReservationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.ReservationStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.RetrieveLoginInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.RideResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.RoutingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.SeaportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.ServiceTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.StateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.StatusesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.TimeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Lemo.API_Serv.VehicleTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\API_Serv\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Controls\MainControl.ascx" />
+    <Content Include="Scripts\LimoScript.js" />
+    <Content Include="sitemap.xml" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Styles\StyleSheet1.css" />
+    <Content Include="ui\demos.css" />
+    <Content Include="ui\jquery-1.8.3.js" />
+    <Content Include="ui\jquery.ui.core.js" />
+    <Content Include="ui\jquery.ui.datepicker.js" />
+    <Content Include="ui\jquery.ui.dialog.js" />
+    <Content Include="ui\jquery.ui.widget.js" />
+    <None Include="Web References\Mylimobiz\AccountInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\AccountResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\AddressResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\AffiliateIdResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\AffiliateResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\AffiliatesResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\AgentInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\AirlineResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\AirportInstrInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\AirportResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\apiservice.wsdl" />
+    <None Include="Web References\Mylimobiz\ApiServiceResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\CarResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\ConfNumberResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\CountryResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\CreditCardResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\CruiseLinesAndShipsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\CustomerLoyaltyInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\DateTimeInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\DriverIdResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\DriverResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\DriversResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\FBOResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\FullRideResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\LoginResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\OccasionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\PaymentMethodResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\POIResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\RateResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\RatesMappingResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Mylimobiz\ReservationsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\ReservationStatusResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\RetrieveLoginInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\RideResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\RoutingResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\SeaportResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\ServiceTypeResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\StateResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\StatusesResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\TimeResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\TimeZonesResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\UsersResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Mylimobiz\VehicleTypeResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Service1\Car.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Service1\Company.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Service1\Driver.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Service1\DriverLocation.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Service1\DriverLogin.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Service1\Job.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Service1\Limoallover.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <None Include="Web References\Service1\Limoallover.wsdl" />
+    <None Include="Web References\Service1\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\AddCompany.ascx.cs">
+      <DependentUpon>AddCompany.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\AddCompany.ascx.designer.cs">
+      <DependentUpon>AddCompany.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\AddContactPerson.ascx.cs">
+      <DependentUpon>AddContactPerson.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\AddContactPerson.ascx.designer.cs">
+      <DependentUpon>AddContactPerson.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\AddNewCar.ascx.cs">
+      <DependentUpon>AddNewCar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\AddNewCar.ascx.designer.cs">
+      <DependentUpon>AddNewCar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\CompanyInformation.ascx.cs">
+      <DependentUpon>CompanyInformation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\CompanyInformation.ascx.designer.cs">
+      <DependentUpon>CompanyInformation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\Settle.ascx.cs">
+      <DependentUpon>Settle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\Settle.ascx.designer.cs">
+      <DependentUpon>Settle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\Driver.ascx.cs">
+      <DependentUpon>Driver.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\Driver.ascx.designer.cs">
+      <DependentUpon>Driver.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\Login.ascx.cs">
+      <DependentUpon>Login.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\Login.ascx.designer.cs">
+      <DependentUpon>Login.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ManageAroundCities.ascx.cs">
+      <DependentUpon>ManageAroundCities.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ManageAroundCities.ascx.designer.cs">
+      <DependentUpon>ManageAroundCities.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ManageSettle.ascx.cs">
+      <DependentUpon>ManageSettle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ManageSettle.ascx.designer.cs">
+      <DependentUpon>ManageSettle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ManageReservation.ascx.cs">
+      <DependentUpon>ManageReservation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ManageReservation.ascx.designer.cs">
+      <DependentUpon>ManageReservation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\Reservation.ascx.cs">
+      <DependentUpon>Reservation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\Reservation.ascx.designer.cs">
+      <DependentUpon>Reservation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Helper\AdminHelper.cs" />
+    <Compile Include="Admin\Helper\BaseSuperAdmin.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\AddCar.aspx.cs">
+      <DependentUpon>AddCar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\AddCar.aspx.designer.cs">
+      <DependentUpon>AddCar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\AddCompany.aspx.cs">
+      <DependentUpon>AddCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\AddCompany.aspx.designer.cs">
+      <DependentUpon>AddCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\AddContactPerspn.aspx.cs">
+      <DependentUpon>AddContactPerspn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\AddContactPerspn.aspx.designer.cs">
+      <DependentUpon>AddContactPerspn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\AddCorporate.aspx.cs">
+      <DependentUpon>AddCorporate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\AddCorporate.aspx.designer.cs">
+      <DependentUpon>AddCorporate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\CompanyProfile.aspx.cs">
+      <DependentUpon>CompanyProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\CompanyProfile.aspx.designer.cs">
+      <DependentUpon>CompanyProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\Despatch.aspx.cs">
+      <DependentUpon>Despatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\Despatch.aspx.designer.cs">
+      <DependentUpon>Despatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageCorporate.aspx.cs">
+      <DependentUpon>ManageCorporate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageCorporate.aspx.designer.cs">
+      <DependentUpon>ManageCorporate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\Settle.aspx.cs">
+      <DependentUpon>Settle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\Settle.aspx.designer.cs">
+      <DependentUpon>Settle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\Driver.aspx.cs">
+      <DependentUpon>Driver.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\Driver.aspx.designer.cs">
+      <DependentUpon>Driver.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\EditCar.aspx.cs">
+      <DependentUpon>EditCar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\EditCar.aspx.designer.cs">
+      <DependentUpon>EditCar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\EditCompany.aspx.cs">
+      <DependentUpon>EditCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\EditCompany.aspx.designer.cs">
+      <DependentUpon>EditCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\EditContactPerson.aspx.cs">
+      <DependentUpon>EditContactPerson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\EditContactPerson.aspx.designer.cs">
+      <DependentUpon>EditContactPerson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\LimoAnyWereSteps.aspx.cs">
+      <DependentUpon>LimoAnyWereSteps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\LimoAnyWereSteps.aspx.designer.cs">
+      <DependentUpon>LimoAnyWereSteps.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageCars.aspx.cs">
+      <DependentUpon>ManageCars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageCars.aspx.designer.cs">
+      <DependentUpon>ManageCars.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageCompany.aspx.cs">
+      <DependentUpon>ManageCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageCompany.aspx.designer.cs">
+      <DependentUpon>ManageCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageContactPerson.aspx.cs">
+      <DependentUpon>ManageContactPerson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageContactPerson.aspx.designer.cs">
+      <DependentUpon>ManageContactPerson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageSettle.aspx.cs">
+      <DependentUpon>ManageSettle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageSettle.aspx.designer.cs">
+      <DependentUpon>ManageSettle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageDrivers.aspx.cs">
+      <DependentUpon>ManageDrivers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageDrivers.aspx.designer.cs">
+      <DependentUpon>ManageDrivers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageReservation.aspx.cs">
+      <DependentUpon>ManageReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\ManageReservation.aspx.designer.cs">
+      <DependentUpon>ManageReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\Reservation.aspx.cs">
+      <DependentUpon>Reservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\Reservation.aspx.designer.cs">
+      <DependentUpon>Reservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\ServiceArea.aspx.cs">
+      <DependentUpon>ServiceArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\ServiceArea.aspx.designer.cs">
+      <DependentUpon>ServiceArea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\TopCompanies.aspx.cs">
+      <DependentUpon>TopCompanies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\TopCompanies.aspx.designer.cs">
+      <DependentUpon>TopCompanies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\JobWrapper.cs" />
+    <Compile Include="Controls\AirportsLinks.ascx.cs">
+      <DependentUpon>AirportsLinks.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\AirportsLinks.ascx.designer.cs">
+      <DependentUpon>AirportsLinks.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookEngine.ascx.cs">
+      <DependentUpon>BookEngine.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\BookEngine.ascx.designer.cs">
+      <DependentUpon>BookEngine.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FeesDetais.ascx.cs">
+      <DependentUpon>FeesDetais.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FeesDetais.ascx.designer.cs">
+      <DependentUpon>FeesDetais.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoginControl.ascx.cs">
+      <DependentUpon>LoginControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\LoginControl.ascx.designer.cs">
+      <DependentUpon>LoginControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapForLiveReservation.ascx.cs">
+      <DependentUpon>MapForLiveReservation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\MapForLiveReservation.ascx.designer.cs">
+      <DependentUpon>MapForLiveReservation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ReservationFees.ascx.cs">
+      <DependentUpon>ReservationFees.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ReservationFees.ascx.designer.cs">
+      <DependentUpon>ReservationFees.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ResevationInformation.ascx.cs">
+      <DependentUpon>ResevationInformation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ResevationInformation.ascx.designer.cs">
+      <DependentUpon>ResevationInformation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SignupControl.ascx.cs">
+      <DependentUpon>SignupControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\SignupControl.ascx.designer.cs">
+      <DependentUpon>SignupControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\CompanyCityPrice.cs" />
+    <Compile Include="DAL\Driver.cs" />
+    <Compile Include="DAL\Job.cs" />
+    <Compile Include="DAL\LimoEntities.cs" />
+    <Compile Include="DAL\cities_extended.cs" />
+    <Compile Include="DAL\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Objects\Car.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\MapMarker.ashx.cs">
+      <DependentUpon>MapMarker.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\GenaricClass.cs" />
+    <Compile Include="Helper\Limo_Gloabel.cs" />
+    <Compile Include="Helper\ListExention.cs" />
+    <Compile Include="Helper\EmailManager.cs" />
+    <Compile Include="HomeMaster.Master.cs">
+      <DependentUpon>HomeMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeMaster.Master.designer.cs">
+      <DependentUpon>HomeMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MobileService\Limoallover.asmx.cs" />
+    <Compile Include="Pages\Airports\Master\AirportMaster.master.cs">
+      <DependentUpon>AirportMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Airports\Master\AirportMaster.master.designer.cs">
+      <DependentUpon>AirportMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CompanySignup.aspx.cs">
+      <DependentUpon>CompanySignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CompanySignup.aspx.designer.cs">
+      <DependentUpon>CompanySignup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CompleteReservation.aspx.cs">
+      <DependentUpon>CompleteReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CompleteReservation.aspx.designer.cs">
+      <DependentUpon>CompleteReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CorporatePayment.aspx.cs">
+      <DependentUpon>CorporatePayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CorporatePayment.aspx.designer.cs">
+      <DependentUpon>CorporatePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CustomerSupport.aspx.cs">
+      <DependentUpon>CustomerSupport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CustomerSupport.aspx.designer.cs">
+      <DependentUpon>CustomerSupport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\JobDetails.aspx.cs">
+      <DependentUpon>JobDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\JobDetails.aspx.designer.cs">
+      <DependentUpon>JobDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LiveReservation.aspx.cs">
+      <DependentUpon>LiveReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LiveReservation.aspx.designer.cs">
+      <DependentUpon>LiveReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ManageReservation.aspx.cs">
+      <DependentUpon>ManageReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ManageReservation.aspx.designer.cs">
+      <DependentUpon>ManageReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MyReservation.aspx.cs">
+      <DependentUpon>MyReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MyReservation.aspx.designer.cs">
+      <DependentUpon>MyReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reservation.aspx.cs">
+      <DependentUpon>Reservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reservation.aspx.designer.cs">
+      <DependentUpon>Reservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Signup.aspx.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Signup.aspx.designer.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\States\Master\StateMaster.master.cs">
+      <DependentUpon>StateMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\States\Master\StateMaster.master.designer.cs">
+      <DependentUpon>StateMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TermsConditions.aspx.cs">
+      <DependentUpon>TermsConditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TermsConditions.aspx.designer.cs">
+      <DependentUpon>TermsConditions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WhyLimoAllOver.aspx.cs">
+      <DependentUpon>WhyLimoAllOver.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WhyLimoAllOver.aspx.designer.cs">
+      <DependentUpon>WhyLimoAllOver.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\MainControl.ascx.cs">
+      <DependentUpon>MainControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\MainControl.ascx.designer.cs">
+      <DependentUpon>MainControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\API_Serv\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Mylimobiz\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Service1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppImages\company\logos\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Image\company\cars\" />
+    <Folder Include="Image\company\logos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HomeMaster.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\API_Serv\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\API_Serv\ApiService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://limoallover.net/Limoallover.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Service1\</RelPath>
+      <UpdateFromURL>http://limoallover.net/Limoallover.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Lemo_Service1_LimoAllOver</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://book.mylimobiz.com/api/apiservice.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Mylimobiz\</RelPath>
+      <UpdateFromURL>https://book.mylimobiz.com/api/apiservice.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Lemo_Mylimobiz_ApiService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7611</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

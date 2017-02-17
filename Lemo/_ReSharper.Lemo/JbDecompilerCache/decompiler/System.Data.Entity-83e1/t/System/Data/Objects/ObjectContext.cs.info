@@ -1,0 +1,22 @@
+﻿Code version: 6.0.2202.688
+Assembly name System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 mvid {1a5cde0d-dbf8-4003-b26d-469cd5c49041}
+* ref mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {3e47475e-95fe-42e6-a243-cf5a610648e9}
+* ref System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {92e20897-1941-4aa2-a68e-7acc8bba4dba}
+* ref System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {cddeb08b-4902-4b3e-8f64-def5f1086e6e}
+* ref System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {5f46dc30-d570-4bf0-89a7-bd890bab36c3}
+* ref System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {c80dad77-8b28-43fe-9190-79fcf991a420}
+* ref System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {cc4623ec-48d8-4b3d-a0d2-8d822c22f4e7}
+* ref System.Transactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {67a82930-ddb1-4cd9-a232-44a9d3ccdcdc}
+* ref System.ComponentModel.DataAnnotations, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+  mvid {9bf4abd8-cff3-4a1a-b3c8-31f05f619b99}
+* ref System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {19da5323-3481-48e0-a5c4-21e53cfa872a}
+* ref System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+  mvid {be1acab3-f30e-4be4-b822-0b58856a5946}

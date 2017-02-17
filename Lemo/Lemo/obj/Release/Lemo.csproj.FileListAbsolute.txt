@@ -1,0 +1,5 @@
+D:\work\work maged\Lemo\Lemo\Lemo\bin\Lemo.dll
+D:\work\work maged\Lemo\Lemo\Lemo\bin\Lemo.pdb
+D:\work\work maged\Lemo\Lemo\Lemo\obj\Release\Lemo.dll
+D:\work\work maged\Lemo\Lemo\Lemo\obj\Release\Lemo.pdb
+D:\work\work maged\Lemo\Lemo\Lemo\obj\Release\ResolveAssemblyReference.cache

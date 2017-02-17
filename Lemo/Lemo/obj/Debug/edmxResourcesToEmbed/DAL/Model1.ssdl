@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Lemo.DAL.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="LemoDALStoreContainer">
+    <EntitySet Name="Car" EntityType="Lemo.DAL.Store.Car" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cities_extended" EntityType="Lemo.DAL.Store.cities_extended" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="City" EntityType="Lemo.DAL.Store.City" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Company" EntityType="Lemo.DAL.Store.Company" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyCityPrice" EntityType="Lemo.DAL.Store.CompanyCityPrice" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContactPerson" EntityType="Lemo.DAL.Store.ContactPerson" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Corporate" EntityType="Lemo.DAL.Store.Corporate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Job" EntityType="Lemo.DAL.Store.Job" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JobStatus" EntityType="Lemo.DAL.Store.JobStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LogTime" EntityType="Lemo.DAL.Store.LogTime" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="State" EntityType="Lemo.DAL.Store.State" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="Lemo.DAL.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="Lemo.DAL.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CarType" EntityType="Lemo.DAL.Store.CarType" store:Type="Tables" Schema="maged_LimoDB" />
+    <EntitySet Name="Driver" EntityType="Lemo.DAL.Store.Driver" store:Type="Tables" Schema="maged_LimoDB" />
+    <EntitySet Name="DriverLocation" EntityType="Lemo.DAL.Store.DriverLocation" store:Type="Tables" Schema="maged_LimoDB" />
+    <EntitySet Name="tbRate" EntityType="Lemo.DAL.Store.tbRate" store:Type="Tables" Schema="maged_LimoDB" />
+    <AssociationSet Name="FK_Car_Company" Association="Lemo.DAL.Store.FK_Car_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cities_extended_State" Association="Lemo.DAL.Store.FK_cities_extended_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="cities_extended" EntitySet="cities_extended" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State" Association="Lemo.DAL.Store.FK_City_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyCityPrice_cities_extended" Association="Lemo.DAL.Store.FK_CompanyCityPrice_cities_extended">
+      <End Role="cities_extended" EntitySet="cities_extended" />
+      <End Role="CompanyCityPrice" EntitySet="CompanyCityPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyCityPrice_Company" Association="Lemo.DAL.Store.FK_CompanyCityPrice_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="CompanyCityPrice" EntitySet="CompanyCityPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactPerson_Company" Association="Lemo.DAL.Store.FK_ContactPerson_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="ContactPerson" EntitySet="ContactPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Driver_Car" Association="Lemo.DAL.Store.FK_Driver_Car">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="Driver" EntitySet="Driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Driver_Company" Association="Lemo.DAL.Store.FK_Driver_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Driver" EntitySet="Driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Driver_JobStatus" Association="Lemo.DAL.Store.FK_Driver_JobStatus">
+      <End Role="JobStatus" EntitySet="JobStatus" />
+      <End Role="Driver" EntitySet="Driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverLocation_Driver" Association="Lemo.DAL.Store.FK_DriverLocation_Driver">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="DriverLocation" EntitySet="DriverLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Job_Car" Association="Lemo.DAL.Store.FK_Job_Car">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="Job" EntitySet="Job" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Job_Driver" Association="Lemo.DAL.Store.FK_Job_Driver">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="Job" EntitySet="Job" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Job_JobStatus" Association="Lemo.DAL.Store.FK_Job_JobStatus">
+      <End Role="JobStatus" EntitySet="JobStatus" />
+      <End Role="Job" EntitySet="Job" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Job_User" Association="Lemo.DAL.Store.FK_Job_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Job" EntitySet="Job" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbRate_Driver" Association="Lemo.DAL.Store.FK_tbRate_Driver">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="tbRate" EntitySet="tbRate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_cities_extended" Association="Lemo.DAL.Store.FK_User_cities_extended">
+      <End Role="cities_extended" EntitySet="cities_extended" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_State" Association="Lemo.DAL.Store.FK_User_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="CarID" />
+    </Key>
+    <Property Name="CarID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CarName" Type="varchar" MaxLength="15" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="NoPassengers" Type="int" />
+    <Property Name="PhotoName" Type="nvarchar(max)" />
+    <Property Name="PricePerHore" Type="float" />
+    <Property Name="PricePerMaile" Type="float" />
+    <Property Name="CarNumber" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="cities_extended">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="state_code" Type="char" Nullable="false" MaxLength="2" />
+    <Property Name="zip" Type="char" MaxLength="5" />
+    <Property Name="latitude" Type="char" MaxLength="15" />
+    <Property Name="longitude" Type="char" MaxLength="15" />
+    <Property Name="county" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" />
+    <Property Name="state_code" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+    <Property Name="CityID" Type="int" />
+    <Property Name="stateName" Type="varchar" MaxLength="50" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="char" MaxLength="5" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" />
+    <Property Name="PricePerHour" Type="float" />
+    <Property Name="PricePerMile" Type="float" />
+    <Property Name="LimoAPIID" Type="nvarchar" MaxLength="20" />
+    <Property Name="LimoAPIKey" Type="nvarchar" MaxLength="20" />
+    <Property Name="IsSupportAllState" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" />
+    <Property Name="IsAvailable" Type="bit" />
+    <Property Name="DistancePerMile" Type="float" />
+    <Property Name="Description" Type="text" />
+    <Property Name="imagePath" Type="nvarchar(max)" />
+    <Property Name="IsTop" Type="bit" />
+    <Property Name="TopRank" Type="int" />
+    <Property Name="OUR_SERVICE" Type="text" />
+    <Property Name="OUR_FLEET" Type="text" />
+    <Property Name="About_Us" Type="text" />
+    <Property Name="Contact_Us" Type="text" />
+    <Property Name="State_Tax" Type="float" />
+    <Property Name="City_Tax" Type="float" />
+    <Property Name="OtherTax1" Type="float" />
+    <Property Name="Tax1Note" Type="varchar" MaxLength="50" />
+    <Property Name="OtherTax2" Type="float" />
+    <Property Name="Tax2Note" Type="varchar" MaxLength="50" />
+    <Property Name="Gratuity" Type="float" />
+    <Property Name="GratuityNote" Type="varchar" MaxLength="50" />
+    <Property Name="IsDespath" Type="bit" />
+  </EntityType>
+  <EntityType Name="CompanyCityPrice">
+    <Key>
+      <PropertyRef Name="CompanyCityPriceID" />
+    </Key>
+    <Property Name="CompanyCityPriceID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CityID" Type="int" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="Price" Type="float" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="ContactPerson">
+    <Key>
+      <PropertyRef Name="ContactPersonID" />
+    </Key>
+    <Property Name="ContactPersonID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" />
+    <Property Name="LastName" Type="varchar" MaxLength="20" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="40" />
+    <Property Name="TimeFrom" Type="float" />
+    <Property Name="TimeTo" Type="float" />
+    <Property Name="AvailableDays" Type="int" />
+    <Property Name="Job" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Corporate">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Name="JobID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="CompanyCarID" Type="int" />
+    <Property Name="FromAddress" Type="nvarchar" MaxLength="75" />
+    <Property Name="ToAddress" Type="nvarchar" MaxLength="75" />
+    <Property Name="CityID" Type="int" />
+    <Property Name="TimeHour" Type="int" />
+    <Property Name="TimeMinute" Type="int" />
+    <Property Name="TotalPrice" Type="float" />
+    <Property Name="EstimatedFarePrice" Type="float" />
+    <Property Name="GratuityPrice" Type="float" />
+    <Property Name="ProcessingFee" Type="float" />
+    <Property Name="Taxes" Type="float" />
+    <Property Name="OtherPrice" Type="float" />
+    <Property Name="Notes" Type="text" />
+    <Property Name="LimoConfirmNumber" Type="varchar" MaxLength="20" />
+    <Property Name="ComapnyConfirmNum" Type="varchar" MaxLength="20" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="40" />
+    <Property Name="JobDate" Type="smalldatetime" />
+    <Property Name="JobTime" Type="varchar" MaxLength="15" />
+    <Property Name="PriceNote" Type="nvarchar" MaxLength="100" />
+    <Property Name="DriverID" Type="int" />
+    <Property Name="TripConfirmationNumber" Type="int" />
+    <Property Name="AuthorizationCode" Type="varchar" MaxLength="10" />
+    <Property Name="AuthorizInvoiceNumber" Type="varchar" MaxLength="10" />
+    <Property Name="JobStatusID" Type="int" />
+    <Property Name="IsDespath" Type="bit" />
+    <Property Name="CorporateID" Type="int" />
+    <Property Name="JobBy" Type="int" />
+    <Property Name="NoPassenger" Type="int" />
+    <Property Name="FromLat" Type="nvarchar" MaxLength="50" />
+    <Property Name="FromLng" Type="nvarchar" MaxLength="50" />
+    <Property Name="ToLat" Type="nvarchar" MaxLength="50" />
+    <Property Name="ToLng" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="JobStatus">
+    <Key>
+      <PropertyRef Name="JobStatusID" />
+    </Key>
+    <Property Name="JobStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="JobStatus" Type="varchar" MaxLength="25" />
+    <Property Name="color" Type="char" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="LogTime">
+    <Key>
+      <PropertyRef Name="LogTimeId" />
+    </Key>
+    <Property Name="LogTimeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DriverId" Type="int" />
+    <Property Name="Lat" Type="nvarchar" MaxLength="100" />
+    <Property Name="Lng" Type="nvarchar" MaxLength="100" />
+    <Property Name="JobStatusId" Type="int" />
+    <Property Name="LogTime" Type="datetime" />
+    <Property Name="JobId" Type="int" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="state_code" />
+    </Key>
+    <Property Name="StateName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="state_code" Type="char" Nullable="false" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" />
+    <Property Name="LastName" Type="varchar" MaxLength="20" />
+    <Property Name="SatatID" Type="char" MaxLength="2" />
+    <Property Name="CityID" Type="int" />
+    <Property Name="Address" Type="varchar" MaxLength="30" />
+    <Property Name="Email" Type="varchar" MaxLength="40" />
+    <Property Name="ZipCode" Type="char" MaxLength="5" />
+    <Property Name="UserName" Type="varchar" MaxLength="15" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="Passwords" Type="nvarchar" MaxLength="15" />
+    <Property Name="CardNumber" Type="char" MaxLength="16" />
+    <Property Name="CardZipCode" Type="char" MaxLength="5" />
+    <Property Name="CardAddress" Type="varchar" MaxLength="50" />
+    <Property Name="CardStateID" Type="char" MaxLength="2" />
+    <Property Name="CardExpirationDate" Type="char" MaxLength="7" />
+    <Property Name="CardHolderFName" Type="varchar" MaxLength="20" />
+    <Property Name="CardHolderLName" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CarType">
+    <Key>
+      <PropertyRef Name="CarTypeID" />
+    </Key>
+    <Property Name="CarTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="DriverID" />
+    </Key>
+    <Property Name="FName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="JobStatusID" Type="int" />
+    <Property Name="CarTypeID" Type="int" />
+    <Property Name="DeviceToken" Type="nvarchar" MaxLength="300" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="DriverID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IsAvailable" Type="bit" />
+    <Property Name="ShowOnMap" Type="bit" />
+    <Property Name="CarID" Type="int" />
+    <Property Name="DrvierImagePath" Type="nvarchar" MaxLength="250" />
+    <Property Name="DeviceType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DriverLocation">
+    <Key>
+      <PropertyRef Name="DriverLocationID" />
+    </Key>
+    <Property Name="DriverLocationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Lat" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lng" Type="nvarchar" MaxLength="50" />
+    <Property Name="DriverID" Type="int" />
+  </EntityType>
+  <EntityType Name="tbRate">
+    <Key>
+      <PropertyRef Name="RateID" />
+    </Key>
+    <Property Name="RateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DriverID" Type="int" Nullable="false" />
+    <Property Name="Rate" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Car_Company">
+    <End Role="Company" Type="Lemo.DAL.Store.Company" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Car" Type="Lemo.DAL.Store.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cities_extended_State">
+    <End Role="State" Type="Lemo.DAL.Store.State" Multiplicity="1" />
+    <End Role="cities_extended" Type="Lemo.DAL.Store.cities_extended" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="state_code" />
+      </Principal>
+      <Dependent Role="cities_extended">
+        <PropertyRef Name="state_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State">
+    <End Role="State" Type="Lemo.DAL.Store.State" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="City" Type="Lemo.DAL.Store.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="state_code" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="state_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyCityPrice_cities_extended">
+    <End Role="cities_extended" Type="Lemo.DAL.Store.cities_extended" Multiplicity="0..1" />
+    <End Role="CompanyCityPrice" Type="Lemo.DAL.Store.CompanyCityPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities_extended">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="CompanyCityPrice">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyCityPrice_Company">
+    <End Role="Company" Type="Lemo.DAL.Store.Company" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CompanyCityPrice" Type="Lemo.DAL.Store.CompanyCityPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="CompanyCityPrice">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactPerson_Company">
+    <End Role="Company" Type="Lemo.DAL.Store.Company" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ContactPerson" Type="Lemo.DAL.Store.ContactPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="ContactPerson">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Driver_Car">
+    <End Role="Car" Type="Lemo.DAL.Store.Car" Multiplicity="0..1" />
+    <End Role="Driver" Type="Lemo.DAL.Store.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="CarID" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="CarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Driver_Company">
+    <End Role="Company" Type="Lemo.DAL.Store.Company" Multiplicity="0..1" />
+    <End Role="Driver" Type="Lemo.DAL.Store.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Driver_JobStatus">
+    <End Role="JobStatus" Type="Lemo.DAL.Store.JobStatus" Multiplicity="0..1" />
+    <End Role="Driver" Type="Lemo.DAL.Store.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobStatus">
+        <PropertyRef Name="JobStatusID" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="JobStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverLocation_Driver">
+    <End Role="Driver" Type="Lemo.DAL.Store.Driver" Multiplicity="0..1" />
+    <End Role="DriverLocation" Type="Lemo.DAL.Store.DriverLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="DriverLocation">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Job_Car">
+    <End Role="Car" Type="Lemo.DAL.Store.Car" Multiplicity="0..1" />
+    <End Role="Job" Type="Lemo.DAL.Store.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="CarID" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="CompanyCarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Job_Driver">
+    <End Role="Driver" Type="Lemo.DAL.Store.Driver" Multiplicity="0..1" />
+    <End Role="Job" Type="Lemo.DAL.Store.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Job_JobStatus">
+    <End Role="JobStatus" Type="Lemo.DAL.Store.JobStatus" Multiplicity="0..1" />
+    <End Role="Job" Type="Lemo.DAL.Store.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobStatus">
+        <PropertyRef Name="JobStatusID" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="JobStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Job_User">
+    <End Role="User" Type="Lemo.DAL.Store.User" Multiplicity="0..1" />
+    <End Role="Job" Type="Lemo.DAL.Store.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbRate_Driver">
+    <End Role="Driver" Type="Lemo.DAL.Store.Driver" Multiplicity="1" />
+    <End Role="tbRate" Type="Lemo.DAL.Store.tbRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="tbRate">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_cities_extended">
+    <End Role="cities_extended" Type="Lemo.DAL.Store.cities_extended" Multiplicity="0..1" />
+    <End Role="User" Type="Lemo.DAL.Store.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities_extended">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_State">
+    <End Role="State" Type="Lemo.DAL.Store.State" Multiplicity="0..1" />
+    <End Role="User" Type="Lemo.DAL.Store.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="state_code" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CardStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CalculateDistance" ReturnType="float" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Longitude1" Type="decimal" Mode="In" />
+    <Parameter Name="Latitude1" Type="decimal" Mode="In" />
+    <Parameter Name="Longitude2" Type="decimal" Mode="In" />
+    <Parameter Name="Latitude2" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="LatitudePlusDistance" ReturnType="float" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartLatitude" Type="float" Mode="In" />
+    <Parameter Name="Distance" Type="float" Mode="In" />
+  </Function>
+  <Function Name="LongitudePlusDistance" ReturnType="float" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartLongitude" Type="float" Mode="In" />
+    <Parameter Name="StartLatitude" Type="float" Mode="In" />
+    <Parameter Name="Distance" Type="float" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetDriversInRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Longitude" Type="decimal" Mode="In" />
+    <Parameter Name="Latitude" Type="decimal" Mode="In" />
+    <Parameter Name="DistanceWithMile" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="SP_GetJobDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JobID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetJobInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JobID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_UpdateJobStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JobId" Type="int" Mode="In" />
+    <Parameter Name="DriverId" Type="int" Mode="In" />
+    <Parameter Name="JobStatusId" Type="int" Mode="In" />
+    <Parameter Name="Lat" Type="nvarchar" Mode="In" />
+    <Parameter Name="Lng" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UpdateJobStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JobId" Type="int" Mode="In" />
+    <Parameter Name="DriverId" Type="int" Mode="In" />
+    <Parameter Name="JobStatusId" Type="int" Mode="In" />
+    <Parameter Name="CallId" Type="int" Mode="In" />
+    <Parameter Name="Lat" Type="nvarchar" Mode="In" />
+    <Parameter Name="Lng" Type="nvarchar" Mode="In" />
+  </Function>
+</Schema>

@@ -1,0 +1,2439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAllCars">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cityFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cityTo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NumOfPassangers" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfHour" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfMile" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCarsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCarsResult" type="tns:ArrayOfCar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Car" nillable="true" type="tns:Car" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Car">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CarID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoPassengers" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricePerHore" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricePerMaile" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="LimoAPIID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LimoAPIKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalPrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImagePath" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetJobDetailsBeforeAssign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="JobID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobDetailsBeforeAssignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJobDetailsBeforeAssignResult" type="tns:ArrayOfJob" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfJob">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Job" nillable="true" type="tns:Job" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Job">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="JobID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompanyCarID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FromAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeHour" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeMinute" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPrice" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="EstimatedFarePrice" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="GratuityPrice" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessingFee" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Taxes" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="OtherPrice" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LimoConfirmNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComapnyConfirmNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriceNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DriverID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TripConfirmationNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizInvoiceNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="JobStatusID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverFName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverLName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverCarType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverCarImage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetJobDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="JobID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJobDetailsResult" type="tns:ArrayOfJob" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCompanies">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllCompaniesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCompaniesResult" type="tns:ArrayOfCompany" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCompany">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Company" nillable="true" type="tns:Company" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Company">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LimoAPIID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LimoAPIKey" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllDrivers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllDriversResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllDriversResult" type="tns:ArrayOfDriver" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDriver">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Driver" nillable="true" type="tns:Driver" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Driver">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CarName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoPassengers" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhotoName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricePerHore" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricePerMaile" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="FName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeviceToken" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowOnMap" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lng" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="JobStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrvierImagePath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalRate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DriverID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDriverLocation">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDriverLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDriverLocationResult" type="tns:ArrayOfDriverLocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDriverLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DriverLocation" nillable="true" type="tns:DriverLocation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DriverLocation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DriverLocationID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lng" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DriverID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateDriverLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lng" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DriverID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDriverLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDriverLocationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeDriverStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="JobStatusID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DriverID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeDriverStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangeDriverStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeDriverWorkStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StatusID" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="DriverID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeDriverWorkStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangeDriverWorkStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DriverStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StatusID" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="DriverID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DriverStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DriverStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="assignDriverToJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="JobStatusID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DriverID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="assignDriverToJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="assignDriverToJobResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registerDriver">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StatusID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CarTypeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registerDriverResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="registerDriverResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DriverLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="driverToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DriverLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DriverLoginResult" type="tns:ArrayOfDriverLogin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDriverLogin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DriverLogin" nillable="true" type="tns:DriverLogin" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DriverLogin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CarName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoPassengers" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricePerHore" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricePerMaile" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DriverID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CarID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DriverCLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DriverCLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DriverCLoginResult" type="tns:ArrayOfDriverLogin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendNotifcationToDriver">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NotifcationMsg" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DriverID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendNotifcationToDriverResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendNotifcationToDriverResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDriverToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="driverToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DriverID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDriverTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDriverTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSetting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CPH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CPM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StatusID" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="DriverID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSettingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateSettingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcceptCall">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDriverID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="JobID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bAcceptStatus" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCarId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcceptCallResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AcceptCallResult" type="tns:ArrayOfJob" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcceptCall2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDriverID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="JobID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bAcceptStatus" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCarId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcceptCall2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AcceptCall2Result" type="tns:ArrayOfJob" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcceptCall3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDriverID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="JobID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bAcceptStatus" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCarId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcceptCall3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AcceptCall3Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDriversNearMe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Longitude" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Latitude" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DistanceWithMile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nJobId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDriversNearMeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDriversNearMeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMessgaeToDrivers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMessgaeToDriversResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMessgaeToDriversResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendJobToDriver">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nDriverID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nJobId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendJobToDriverResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendJobToDriverResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateJobStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lng" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DriverID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nJobStatus" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nJobId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateJobStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateJobStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateJobExtraValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTolls" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sParking" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sExtraGr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMisc1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMisc2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOtherPrice" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nJobId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateJobExtraValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateJobExtraValuesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallAnotherWebSevice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyAlias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnvType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OsVersion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallAnotherWebSeviceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CallAnotherWebSeviceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfCar" nillable="true" type="tns:ArrayOfCar" />
+      <s:element name="ArrayOfJob" nillable="true" type="tns:ArrayOfJob" />
+      <s:element name="ArrayOfCompany" nillable="true" type="tns:ArrayOfCompany" />
+      <s:element name="ArrayOfDriver" nillable="true" type="tns:ArrayOfDriver" />
+      <s:element name="ArrayOfDriverLocation" nillable="true" type="tns:ArrayOfDriverLocation" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfDriverLogin" nillable="true" type="tns:ArrayOfDriverLogin" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllCarsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCars" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCarsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCarsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsBeforeAssignSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJobDetailsBeforeAssign" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsBeforeAssignSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJobDetailsBeforeAssignResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJobDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJobDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCompaniesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCompanies" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCompaniesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllDriversSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllDrivers" />
+  </wsdl:message>
+  <wsdl:message name="GetAllDriversSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllDriversResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDriverLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDriverLocation" />
+  </wsdl:message>
+  <wsdl:message name="GetDriverLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDriverLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDriverLocation" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDriverLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeDriverStatus" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeDriverStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverWorkStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeDriverWorkStatus" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverWorkStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeDriverWorkStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="DriverStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:DriverStatus" />
+  </wsdl:message>
+  <wsdl:message name="DriverStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:DriverStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="assignDriverToJobSoapIn">
+    <wsdl:part name="parameters" element="tns:assignDriverToJob" />
+  </wsdl:message>
+  <wsdl:message name="assignDriverToJobSoapOut">
+    <wsdl:part name="parameters" element="tns:assignDriverToJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="registerDriverSoapIn">
+    <wsdl:part name="parameters" element="tns:registerDriver" />
+  </wsdl:message>
+  <wsdl:message name="registerDriverSoapOut">
+    <wsdl:part name="parameters" element="tns:registerDriverResponse" />
+  </wsdl:message>
+  <wsdl:message name="DriverLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:DriverLogin" />
+  </wsdl:message>
+  <wsdl:message name="DriverLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:DriverLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="DriverCLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:DriverCLogin" />
+  </wsdl:message>
+  <wsdl:message name="DriverCLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:DriverCLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendNotifcationToDriverSoapIn">
+    <wsdl:part name="parameters" element="tns:SendNotifcationToDriver" />
+  </wsdl:message>
+  <wsdl:message name="SendNotifcationToDriverSoapOut">
+    <wsdl:part name="parameters" element="tns:SendNotifcationToDriverResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDriverToken" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDriverTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSettingSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSetting" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSettingSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCallSoapIn">
+    <wsdl:part name="parameters" element="tns:AcceptCall" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCallSoapOut">
+    <wsdl:part name="parameters" element="tns:AcceptCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall2SoapIn">
+    <wsdl:part name="parameters" element="tns:AcceptCall2" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall2SoapOut">
+    <wsdl:part name="parameters" element="tns:AcceptCall2Response" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall3SoapIn">
+    <wsdl:part name="parameters" element="tns:AcceptCall3" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall3SoapOut">
+    <wsdl:part name="parameters" element="tns:AcceptCall3Response" />
+  </wsdl:message>
+  <wsdl:message name="GetDriversNearMeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDriversNearMe" />
+  </wsdl:message>
+  <wsdl:message name="GetDriversNearMeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDriversNearMeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMessgaeToDriversSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMessgaeToDrivers" />
+  </wsdl:message>
+  <wsdl:message name="SendMessgaeToDriversSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMessgaeToDriversResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendJobToDriverSoapIn">
+    <wsdl:part name="parameters" element="tns:SendJobToDriver" />
+  </wsdl:message>
+  <wsdl:message name="SendJobToDriverSoapOut">
+    <wsdl:part name="parameters" element="tns:SendJobToDriverResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateJobStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateJobStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobExtraValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateJobExtraValues" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobExtraValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateJobExtraValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CallAnotherWebSeviceSoapIn">
+    <wsdl:part name="parameters" element="tns:CallAnotherWebSevice" />
+  </wsdl:message>
+  <wsdl:message name="CallAnotherWebSeviceSoapOut">
+    <wsdl:part name="parameters" element="tns:CallAnotherWebSeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCarsHttpGetIn">
+    <wsdl:part name="cityFrom" type="s:string" />
+    <wsdl:part name="cityTo" type="s:string" />
+    <wsdl:part name="NumOfPassangers" type="s:string" />
+    <wsdl:part name="numberOfHour" type="s:string" />
+    <wsdl:part name="numberOfMile" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCarsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCar" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsBeforeAssignHttpGetIn">
+    <wsdl:part name="JobID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsBeforeAssignHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfJob" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsHttpGetIn">
+    <wsdl:part name="JobID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfJob" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCompaniesHttpGetIn" />
+  <wsdl:message name="GetAllCompaniesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCompany" />
+  </wsdl:message>
+  <wsdl:message name="GetAllDriversHttpGetIn" />
+  <wsdl:message name="GetAllDriversHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDriver" />
+  </wsdl:message>
+  <wsdl:message name="GetDriverLocationHttpGetIn" />
+  <wsdl:message name="GetDriverLocationHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDriverLocation" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverLocationHttpGetIn">
+    <wsdl:part name="Lat" type="s:string" />
+    <wsdl:part name="Lng" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverLocationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverStatusHttpGetIn">
+    <wsdl:part name="jobID" type="s:string" />
+    <wsdl:part name="JobStatusID" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverWorkStatusHttpGetIn">
+    <wsdl:part name="StatusID" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverWorkStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DriverStatusHttpGetIn">
+    <wsdl:part name="StatusID" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DriverStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="assignDriverToJobHttpGetIn">
+    <wsdl:part name="jobID" type="s:string" />
+    <wsdl:part name="JobStatusID" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="assignDriverToJobHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="registerDriverHttpGetIn">
+    <wsdl:part name="FName" type="s:string" />
+    <wsdl:part name="LName" type="s:string" />
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Email" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StatusID" type="s:string" />
+    <wsdl:part name="CarTypeID" type="s:string" />
+    <wsdl:part name="DeviceToken" type="s:string" />
+    <wsdl:part name="CompanyID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="registerDriverHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DriverLoginHttpGetIn">
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="driverToken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DriverLoginHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDriverLogin" />
+  </wsdl:message>
+  <wsdl:message name="DriverCLoginHttpGetIn">
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="CompanyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DriverCLoginHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDriverLogin" />
+  </wsdl:message>
+  <wsdl:message name="SendNotifcationToDriverHttpGetIn">
+    <wsdl:part name="NotifcationMsg" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendNotifcationToDriverHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverTokenHttpGetIn">
+    <wsdl:part name="driverToken" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+    <wsdl:part name="DeviceType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverTokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSettingHttpGetIn">
+    <wsdl:part name="CPH" type="s:string" />
+    <wsdl:part name="CPM" type="s:string" />
+    <wsdl:part name="CarID" type="s:string" />
+    <wsdl:part name="StatusID" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSettingHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCallHttpGetIn">
+    <wsdl:part name="nDriverID" type="s:string" />
+    <wsdl:part name="JobID" type="s:string" />
+    <wsdl:part name="bAcceptStatus" type="s:string" />
+    <wsdl:part name="sCarId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCallHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfJob" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall2HttpGetIn">
+    <wsdl:part name="nDriverID" type="s:string" />
+    <wsdl:part name="JobID" type="s:string" />
+    <wsdl:part name="bAcceptStatus" type="s:string" />
+    <wsdl:part name="sCarId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall2HttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfJob" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall3HttpGetIn">
+    <wsdl:part name="nDriverID" type="s:string" />
+    <wsdl:part name="JobID" type="s:string" />
+    <wsdl:part name="bAcceptStatus" type="s:string" />
+    <wsdl:part name="sCarId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall3HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDriversNearMeHttpGetIn">
+    <wsdl:part name="Longitude" type="s:string" />
+    <wsdl:part name="Latitude" type="s:string" />
+    <wsdl:part name="DistanceWithMile" type="s:string" />
+    <wsdl:part name="nJobId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDriversNearMeHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SendMessgaeToDriversHttpGetIn">
+    <wsdl:part name="sMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMessgaeToDriversHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SendJobToDriverHttpGetIn">
+    <wsdl:part name="nDriverID" type="s:string" />
+    <wsdl:part name="nJobId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendJobToDriverHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobStatusHttpGetIn">
+    <wsdl:part name="Lat" type="s:string" />
+    <wsdl:part name="Lng" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+    <wsdl:part name="nJobStatus" type="s:string" />
+    <wsdl:part name="nJobId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobExtraValuesHttpGetIn">
+    <wsdl:part name="sTolls" type="s:string" />
+    <wsdl:part name="sParking" type="s:string" />
+    <wsdl:part name="sExtraGr" type="s:string" />
+    <wsdl:part name="sMisc1" type="s:string" />
+    <wsdl:part name="sMisc2" type="s:string" />
+    <wsdl:part name="sOtherPrice" type="s:string" />
+    <wsdl:part name="nJobId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobExtraValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CallAnotherWebSeviceHttpGetIn">
+    <wsdl:part name="CompanyAlias" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="DeviceId" type="s:string" />
+    <wsdl:part name="DeviceType" type="s:string" />
+    <wsdl:part name="AppVersion" type="s:string" />
+    <wsdl:part name="EnvType" type="s:string" />
+    <wsdl:part name="DeviceName" type="s:string" />
+    <wsdl:part name="OsVersion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CallAnotherWebSeviceHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCarsHttpPostIn">
+    <wsdl:part name="cityFrom" type="s:string" />
+    <wsdl:part name="cityTo" type="s:string" />
+    <wsdl:part name="NumOfPassangers" type="s:string" />
+    <wsdl:part name="numberOfHour" type="s:string" />
+    <wsdl:part name="numberOfMile" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCarsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCar" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsBeforeAssignHttpPostIn">
+    <wsdl:part name="JobID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsBeforeAssignHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfJob" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsHttpPostIn">
+    <wsdl:part name="JobID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJobDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfJob" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCompaniesHttpPostIn" />
+  <wsdl:message name="GetAllCompaniesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCompany" />
+  </wsdl:message>
+  <wsdl:message name="GetAllDriversHttpPostIn" />
+  <wsdl:message name="GetAllDriversHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDriver" />
+  </wsdl:message>
+  <wsdl:message name="GetDriverLocationHttpPostIn" />
+  <wsdl:message name="GetDriverLocationHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDriverLocation" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverLocationHttpPostIn">
+    <wsdl:part name="Lat" type="s:string" />
+    <wsdl:part name="Lng" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverLocationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverStatusHttpPostIn">
+    <wsdl:part name="jobID" type="s:string" />
+    <wsdl:part name="JobStatusID" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverWorkStatusHttpPostIn">
+    <wsdl:part name="StatusID" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDriverWorkStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DriverStatusHttpPostIn">
+    <wsdl:part name="StatusID" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DriverStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="assignDriverToJobHttpPostIn">
+    <wsdl:part name="jobID" type="s:string" />
+    <wsdl:part name="JobStatusID" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="assignDriverToJobHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="registerDriverHttpPostIn">
+    <wsdl:part name="FName" type="s:string" />
+    <wsdl:part name="LName" type="s:string" />
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Email" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StatusID" type="s:string" />
+    <wsdl:part name="CarTypeID" type="s:string" />
+    <wsdl:part name="DeviceToken" type="s:string" />
+    <wsdl:part name="CompanyID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="registerDriverHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DriverLoginHttpPostIn">
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="driverToken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DriverLoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDriverLogin" />
+  </wsdl:message>
+  <wsdl:message name="DriverCLoginHttpPostIn">
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="CompanyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DriverCLoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDriverLogin" />
+  </wsdl:message>
+  <wsdl:message name="SendNotifcationToDriverHttpPostIn">
+    <wsdl:part name="NotifcationMsg" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendNotifcationToDriverHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverTokenHttpPostIn">
+    <wsdl:part name="driverToken" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+    <wsdl:part name="DeviceType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDriverTokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSettingHttpPostIn">
+    <wsdl:part name="CPH" type="s:string" />
+    <wsdl:part name="CPM" type="s:string" />
+    <wsdl:part name="CarID" type="s:string" />
+    <wsdl:part name="StatusID" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSettingHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCallHttpPostIn">
+    <wsdl:part name="nDriverID" type="s:string" />
+    <wsdl:part name="JobID" type="s:string" />
+    <wsdl:part name="bAcceptStatus" type="s:string" />
+    <wsdl:part name="sCarId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCallHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfJob" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall2HttpPostIn">
+    <wsdl:part name="nDriverID" type="s:string" />
+    <wsdl:part name="JobID" type="s:string" />
+    <wsdl:part name="bAcceptStatus" type="s:string" />
+    <wsdl:part name="sCarId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall2HttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfJob" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall3HttpPostIn">
+    <wsdl:part name="nDriverID" type="s:string" />
+    <wsdl:part name="JobID" type="s:string" />
+    <wsdl:part name="bAcceptStatus" type="s:string" />
+    <wsdl:part name="sCarId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AcceptCall3HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDriversNearMeHttpPostIn">
+    <wsdl:part name="Longitude" type="s:string" />
+    <wsdl:part name="Latitude" type="s:string" />
+    <wsdl:part name="DistanceWithMile" type="s:string" />
+    <wsdl:part name="nJobId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDriversNearMeHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SendMessgaeToDriversHttpPostIn">
+    <wsdl:part name="sMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMessgaeToDriversHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SendJobToDriverHttpPostIn">
+    <wsdl:part name="nDriverID" type="s:string" />
+    <wsdl:part name="nJobId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendJobToDriverHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobStatusHttpPostIn">
+    <wsdl:part name="Lat" type="s:string" />
+    <wsdl:part name="Lng" type="s:string" />
+    <wsdl:part name="DriverID" type="s:string" />
+    <wsdl:part name="nJobStatus" type="s:string" />
+    <wsdl:part name="nJobId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobExtraValuesHttpPostIn">
+    <wsdl:part name="sTolls" type="s:string" />
+    <wsdl:part name="sParking" type="s:string" />
+    <wsdl:part name="sExtraGr" type="s:string" />
+    <wsdl:part name="sMisc1" type="s:string" />
+    <wsdl:part name="sMisc2" type="s:string" />
+    <wsdl:part name="sOtherPrice" type="s:string" />
+    <wsdl:part name="nJobId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJobExtraValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CallAnotherWebSeviceHttpPostIn">
+    <wsdl:part name="CompanyAlias" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="DeviceId" type="s:string" />
+    <wsdl:part name="DeviceType" type="s:string" />
+    <wsdl:part name="AppVersion" type="s:string" />
+    <wsdl:part name="EnvType" type="s:string" />
+    <wsdl:part name="DeviceName" type="s:string" />
+    <wsdl:part name="OsVersion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CallAnotherWebSeviceHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="LimoAllOverSoap">
+    <wsdl:operation name="GetAllCars">
+      <wsdl:input message="tns:GetAllCarsSoapIn" />
+      <wsdl:output message="tns:GetAllCarsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetailsBeforeAssign">
+      <wsdl:input message="tns:GetJobDetailsBeforeAssignSoapIn" />
+      <wsdl:output message="tns:GetJobDetailsBeforeAssignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetails">
+      <wsdl:input message="tns:GetJobDetailsSoapIn" />
+      <wsdl:output message="tns:GetJobDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <wsdl:input message="tns:GetAllCompaniesSoapIn" />
+      <wsdl:output message="tns:GetAllCompaniesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDrivers">
+      <wsdl:input message="tns:GetAllDriversSoapIn" />
+      <wsdl:output message="tns:GetAllDriversSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDriverLocation">
+      <wsdl:input message="tns:GetDriverLocationSoapIn" />
+      <wsdl:output message="tns:GetDriverLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverLocation">
+      <wsdl:input message="tns:UpdateDriverLocationSoapIn" />
+      <wsdl:output message="tns:UpdateDriverLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverStatus">
+      <wsdl:input message="tns:ChangeDriverStatusSoapIn" />
+      <wsdl:output message="tns:ChangeDriverStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverWorkStatus">
+      <wsdl:input message="tns:ChangeDriverWorkStatusSoapIn" />
+      <wsdl:output message="tns:ChangeDriverWorkStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DriverStatus">
+      <wsdl:input message="tns:DriverStatusSoapIn" />
+      <wsdl:output message="tns:DriverStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignDriverToJob">
+      <wsdl:input message="tns:assignDriverToJobSoapIn" />
+      <wsdl:output message="tns:assignDriverToJobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="registerDriver">
+      <wsdl:input message="tns:registerDriverSoapIn" />
+      <wsdl:output message="tns:registerDriverSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DriverLogin">
+      <wsdl:input message="tns:DriverLoginSoapIn" />
+      <wsdl:output message="tns:DriverLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DriverCLogin">
+      <wsdl:input message="tns:DriverCLoginSoapIn" />
+      <wsdl:output message="tns:DriverCLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNotifcationToDriver">
+      <wsdl:input message="tns:SendNotifcationToDriverSoapIn" />
+      <wsdl:output message="tns:SendNotifcationToDriverSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverToken">
+      <wsdl:input message="tns:UpdateDriverTokenSoapIn" />
+      <wsdl:output message="tns:UpdateDriverTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSetting">
+      <wsdl:input message="tns:UpdateSettingSoapIn" />
+      <wsdl:output message="tns:UpdateSettingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall">
+      <wsdl:input message="tns:AcceptCallSoapIn" />
+      <wsdl:output message="tns:AcceptCallSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall2">
+      <wsdl:input message="tns:AcceptCall2SoapIn" />
+      <wsdl:output message="tns:AcceptCall2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall3">
+      <wsdl:input message="tns:AcceptCall3SoapIn" />
+      <wsdl:output message="tns:AcceptCall3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDriversNearMe">
+      <wsdl:input message="tns:GetDriversNearMeSoapIn" />
+      <wsdl:output message="tns:GetDriversNearMeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessgaeToDrivers">
+      <wsdl:input message="tns:SendMessgaeToDriversSoapIn" />
+      <wsdl:output message="tns:SendMessgaeToDriversSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendJobToDriver">
+      <wsdl:input message="tns:SendJobToDriverSoapIn" />
+      <wsdl:output message="tns:SendJobToDriverSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobStatus">
+      <wsdl:input message="tns:UpdateJobStatusSoapIn" />
+      <wsdl:output message="tns:UpdateJobStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobExtraValues">
+      <wsdl:input message="tns:UpdateJobExtraValuesSoapIn" />
+      <wsdl:output message="tns:UpdateJobExtraValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CallAnotherWebSevice">
+      <wsdl:input message="tns:CallAnotherWebSeviceSoapIn" />
+      <wsdl:output message="tns:CallAnotherWebSeviceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="LimoAllOverHttpGet">
+    <wsdl:operation name="GetAllCars">
+      <wsdl:input message="tns:GetAllCarsHttpGetIn" />
+      <wsdl:output message="tns:GetAllCarsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetailsBeforeAssign">
+      <wsdl:input message="tns:GetJobDetailsBeforeAssignHttpGetIn" />
+      <wsdl:output message="tns:GetJobDetailsBeforeAssignHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetails">
+      <wsdl:input message="tns:GetJobDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetJobDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <wsdl:input message="tns:GetAllCompaniesHttpGetIn" />
+      <wsdl:output message="tns:GetAllCompaniesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDrivers">
+      <wsdl:input message="tns:GetAllDriversHttpGetIn" />
+      <wsdl:output message="tns:GetAllDriversHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDriverLocation">
+      <wsdl:input message="tns:GetDriverLocationHttpGetIn" />
+      <wsdl:output message="tns:GetDriverLocationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverLocation">
+      <wsdl:input message="tns:UpdateDriverLocationHttpGetIn" />
+      <wsdl:output message="tns:UpdateDriverLocationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverStatus">
+      <wsdl:input message="tns:ChangeDriverStatusHttpGetIn" />
+      <wsdl:output message="tns:ChangeDriverStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverWorkStatus">
+      <wsdl:input message="tns:ChangeDriverWorkStatusHttpGetIn" />
+      <wsdl:output message="tns:ChangeDriverWorkStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DriverStatus">
+      <wsdl:input message="tns:DriverStatusHttpGetIn" />
+      <wsdl:output message="tns:DriverStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignDriverToJob">
+      <wsdl:input message="tns:assignDriverToJobHttpGetIn" />
+      <wsdl:output message="tns:assignDriverToJobHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="registerDriver">
+      <wsdl:input message="tns:registerDriverHttpGetIn" />
+      <wsdl:output message="tns:registerDriverHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DriverLogin">
+      <wsdl:input message="tns:DriverLoginHttpGetIn" />
+      <wsdl:output message="tns:DriverLoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DriverCLogin">
+      <wsdl:input message="tns:DriverCLoginHttpGetIn" />
+      <wsdl:output message="tns:DriverCLoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNotifcationToDriver">
+      <wsdl:input message="tns:SendNotifcationToDriverHttpGetIn" />
+      <wsdl:output message="tns:SendNotifcationToDriverHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverToken">
+      <wsdl:input message="tns:UpdateDriverTokenHttpGetIn" />
+      <wsdl:output message="tns:UpdateDriverTokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSetting">
+      <wsdl:input message="tns:UpdateSettingHttpGetIn" />
+      <wsdl:output message="tns:UpdateSettingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall">
+      <wsdl:input message="tns:AcceptCallHttpGetIn" />
+      <wsdl:output message="tns:AcceptCallHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall2">
+      <wsdl:input message="tns:AcceptCall2HttpGetIn" />
+      <wsdl:output message="tns:AcceptCall2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall3">
+      <wsdl:input message="tns:AcceptCall3HttpGetIn" />
+      <wsdl:output message="tns:AcceptCall3HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDriversNearMe">
+      <wsdl:input message="tns:GetDriversNearMeHttpGetIn" />
+      <wsdl:output message="tns:GetDriversNearMeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessgaeToDrivers">
+      <wsdl:input message="tns:SendMessgaeToDriversHttpGetIn" />
+      <wsdl:output message="tns:SendMessgaeToDriversHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendJobToDriver">
+      <wsdl:input message="tns:SendJobToDriverHttpGetIn" />
+      <wsdl:output message="tns:SendJobToDriverHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobStatus">
+      <wsdl:input message="tns:UpdateJobStatusHttpGetIn" />
+      <wsdl:output message="tns:UpdateJobStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobExtraValues">
+      <wsdl:input message="tns:UpdateJobExtraValuesHttpGetIn" />
+      <wsdl:output message="tns:UpdateJobExtraValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CallAnotherWebSevice">
+      <wsdl:input message="tns:CallAnotherWebSeviceHttpGetIn" />
+      <wsdl:output message="tns:CallAnotherWebSeviceHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="LimoAllOverHttpPost">
+    <wsdl:operation name="GetAllCars">
+      <wsdl:input message="tns:GetAllCarsHttpPostIn" />
+      <wsdl:output message="tns:GetAllCarsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetailsBeforeAssign">
+      <wsdl:input message="tns:GetJobDetailsBeforeAssignHttpPostIn" />
+      <wsdl:output message="tns:GetJobDetailsBeforeAssignHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetails">
+      <wsdl:input message="tns:GetJobDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetJobDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <wsdl:input message="tns:GetAllCompaniesHttpPostIn" />
+      <wsdl:output message="tns:GetAllCompaniesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDrivers">
+      <wsdl:input message="tns:GetAllDriversHttpPostIn" />
+      <wsdl:output message="tns:GetAllDriversHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDriverLocation">
+      <wsdl:input message="tns:GetDriverLocationHttpPostIn" />
+      <wsdl:output message="tns:GetDriverLocationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverLocation">
+      <wsdl:input message="tns:UpdateDriverLocationHttpPostIn" />
+      <wsdl:output message="tns:UpdateDriverLocationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverStatus">
+      <wsdl:input message="tns:ChangeDriverStatusHttpPostIn" />
+      <wsdl:output message="tns:ChangeDriverStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverWorkStatus">
+      <wsdl:input message="tns:ChangeDriverWorkStatusHttpPostIn" />
+      <wsdl:output message="tns:ChangeDriverWorkStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DriverStatus">
+      <wsdl:input message="tns:DriverStatusHttpPostIn" />
+      <wsdl:output message="tns:DriverStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignDriverToJob">
+      <wsdl:input message="tns:assignDriverToJobHttpPostIn" />
+      <wsdl:output message="tns:assignDriverToJobHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="registerDriver">
+      <wsdl:input message="tns:registerDriverHttpPostIn" />
+      <wsdl:output message="tns:registerDriverHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DriverLogin">
+      <wsdl:input message="tns:DriverLoginHttpPostIn" />
+      <wsdl:output message="tns:DriverLoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DriverCLogin">
+      <wsdl:input message="tns:DriverCLoginHttpPostIn" />
+      <wsdl:output message="tns:DriverCLoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNotifcationToDriver">
+      <wsdl:input message="tns:SendNotifcationToDriverHttpPostIn" />
+      <wsdl:output message="tns:SendNotifcationToDriverHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverToken">
+      <wsdl:input message="tns:UpdateDriverTokenHttpPostIn" />
+      <wsdl:output message="tns:UpdateDriverTokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSetting">
+      <wsdl:input message="tns:UpdateSettingHttpPostIn" />
+      <wsdl:output message="tns:UpdateSettingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall">
+      <wsdl:input message="tns:AcceptCallHttpPostIn" />
+      <wsdl:output message="tns:AcceptCallHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall2">
+      <wsdl:input message="tns:AcceptCall2HttpPostIn" />
+      <wsdl:output message="tns:AcceptCall2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall3">
+      <wsdl:input message="tns:AcceptCall3HttpPostIn" />
+      <wsdl:output message="tns:AcceptCall3HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDriversNearMe">
+      <wsdl:input message="tns:GetDriversNearMeHttpPostIn" />
+      <wsdl:output message="tns:GetDriversNearMeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessgaeToDrivers">
+      <wsdl:input message="tns:SendMessgaeToDriversHttpPostIn" />
+      <wsdl:output message="tns:SendMessgaeToDriversHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendJobToDriver">
+      <wsdl:input message="tns:SendJobToDriverHttpPostIn" />
+      <wsdl:output message="tns:SendJobToDriverHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobStatus">
+      <wsdl:input message="tns:UpdateJobStatusHttpPostIn" />
+      <wsdl:output message="tns:UpdateJobStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobExtraValues">
+      <wsdl:input message="tns:UpdateJobExtraValuesHttpPostIn" />
+      <wsdl:output message="tns:UpdateJobExtraValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CallAnotherWebSevice">
+      <wsdl:input message="tns:CallAnotherWebSeviceHttpPostIn" />
+      <wsdl:output message="tns:CallAnotherWebSeviceHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LimoAllOverSoap" type="tns:LimoAllOverSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCars">
+      <soap:operation soapAction="http://tempuri.org/GetAllCars" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetailsBeforeAssign">
+      <soap:operation soapAction="http://tempuri.org/GetJobDetailsBeforeAssign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetails">
+      <soap:operation soapAction="http://tempuri.org/GetJobDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <soap:operation soapAction="http://tempuri.org/GetAllCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDrivers">
+      <soap:operation soapAction="http://tempuri.org/GetAllDrivers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDriverLocation">
+      <soap:operation soapAction="http://tempuri.org/GetDriverLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverLocation">
+      <soap:operation soapAction="http://tempuri.org/UpdateDriverLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverStatus">
+      <soap:operation soapAction="http://tempuri.org/ChangeDriverStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverWorkStatus">
+      <soap:operation soapAction="http://tempuri.org/ChangeDriverWorkStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverStatus">
+      <soap:operation soapAction="http://tempuri.org/DriverStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignDriverToJob">
+      <soap:operation soapAction="http://tempuri.org/assignDriverToJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerDriver">
+      <soap:operation soapAction="http://tempuri.org/registerDriver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverLogin">
+      <soap:operation soapAction="http://tempuri.org/DriverLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverCLogin">
+      <soap:operation soapAction="http://tempuri.org/DriverCLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNotifcationToDriver">
+      <soap:operation soapAction="http://tempuri.org/SendNotifcationToDriver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverToken">
+      <soap:operation soapAction="http://tempuri.org/UpdateDriverToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSetting">
+      <soap:operation soapAction="http://tempuri.org/UpdateSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall">
+      <soap:operation soapAction="http://tempuri.org/AcceptCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall2">
+      <soap:operation soapAction="http://tempuri.org/AcceptCall2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall3">
+      <soap:operation soapAction="http://tempuri.org/AcceptCall3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDriversNearMe">
+      <soap:operation soapAction="http://tempuri.org/GetDriversNearMe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessgaeToDrivers">
+      <soap:operation soapAction="http://tempuri.org/SendMessgaeToDrivers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendJobToDriver">
+      <soap:operation soapAction="http://tempuri.org/SendJobToDriver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobStatus">
+      <soap:operation soapAction="http://tempuri.org/UpdateJobStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobExtraValues">
+      <soap:operation soapAction="http://tempuri.org/UpdateJobExtraValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallAnotherWebSevice">
+      <soap:operation soapAction="http://tempuri.org/CallAnotherWebSevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LimoAllOverSoap12" type="tns:LimoAllOverSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCars">
+      <soap12:operation soapAction="http://tempuri.org/GetAllCars" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetailsBeforeAssign">
+      <soap12:operation soapAction="http://tempuri.org/GetJobDetailsBeforeAssign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetJobDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <soap12:operation soapAction="http://tempuri.org/GetAllCompanies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDrivers">
+      <soap12:operation soapAction="http://tempuri.org/GetAllDrivers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDriverLocation">
+      <soap12:operation soapAction="http://tempuri.org/GetDriverLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverLocation">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDriverLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverStatus">
+      <soap12:operation soapAction="http://tempuri.org/ChangeDriverStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverWorkStatus">
+      <soap12:operation soapAction="http://tempuri.org/ChangeDriverWorkStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverStatus">
+      <soap12:operation soapAction="http://tempuri.org/DriverStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignDriverToJob">
+      <soap12:operation soapAction="http://tempuri.org/assignDriverToJob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerDriver">
+      <soap12:operation soapAction="http://tempuri.org/registerDriver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverLogin">
+      <soap12:operation soapAction="http://tempuri.org/DriverLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverCLogin">
+      <soap12:operation soapAction="http://tempuri.org/DriverCLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNotifcationToDriver">
+      <soap12:operation soapAction="http://tempuri.org/SendNotifcationToDriver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverToken">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDriverToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSetting">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSetting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall">
+      <soap12:operation soapAction="http://tempuri.org/AcceptCall" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall2">
+      <soap12:operation soapAction="http://tempuri.org/AcceptCall2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall3">
+      <soap12:operation soapAction="http://tempuri.org/AcceptCall3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDriversNearMe">
+      <soap12:operation soapAction="http://tempuri.org/GetDriversNearMe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessgaeToDrivers">
+      <soap12:operation soapAction="http://tempuri.org/SendMessgaeToDrivers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendJobToDriver">
+      <soap12:operation soapAction="http://tempuri.org/SendJobToDriver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobStatus">
+      <soap12:operation soapAction="http://tempuri.org/UpdateJobStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobExtraValues">
+      <soap12:operation soapAction="http://tempuri.org/UpdateJobExtraValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallAnotherWebSevice">
+      <soap12:operation soapAction="http://tempuri.org/CallAnotherWebSevice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LimoAllOverHttpGet" type="tns:LimoAllOverHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetAllCars">
+      <http:operation location="/GetAllCars" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetailsBeforeAssign">
+      <http:operation location="/GetJobDetailsBeforeAssign" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetails">
+      <http:operation location="/GetJobDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <http:operation location="/GetAllCompanies" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDrivers">
+      <http:operation location="/GetAllDrivers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDriverLocation">
+      <http:operation location="/GetDriverLocation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverLocation">
+      <http:operation location="/UpdateDriverLocation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverStatus">
+      <http:operation location="/ChangeDriverStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverWorkStatus">
+      <http:operation location="/ChangeDriverWorkStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverStatus">
+      <http:operation location="/DriverStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignDriverToJob">
+      <http:operation location="/assignDriverToJob" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerDriver">
+      <http:operation location="/registerDriver" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverLogin">
+      <http:operation location="/DriverLogin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverCLogin">
+      <http:operation location="/DriverCLogin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNotifcationToDriver">
+      <http:operation location="/SendNotifcationToDriver" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverToken">
+      <http:operation location="/UpdateDriverToken" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSetting">
+      <http:operation location="/UpdateSetting" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall">
+      <http:operation location="/AcceptCall" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall2">
+      <http:operation location="/AcceptCall2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall3">
+      <http:operation location="/AcceptCall3" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDriversNearMe">
+      <http:operation location="/GetDriversNearMe" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessgaeToDrivers">
+      <http:operation location="/SendMessgaeToDrivers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendJobToDriver">
+      <http:operation location="/SendJobToDriver" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobStatus">
+      <http:operation location="/UpdateJobStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobExtraValues">
+      <http:operation location="/UpdateJobExtraValues" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallAnotherWebSevice">
+      <http:operation location="/CallAnotherWebSevice" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LimoAllOverHttpPost" type="tns:LimoAllOverHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetAllCars">
+      <http:operation location="/GetAllCars" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetailsBeforeAssign">
+      <http:operation location="/GetJobDetailsBeforeAssign" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDetails">
+      <http:operation location="/GetJobDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <http:operation location="/GetAllCompanies" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDrivers">
+      <http:operation location="/GetAllDrivers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDriverLocation">
+      <http:operation location="/GetDriverLocation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverLocation">
+      <http:operation location="/UpdateDriverLocation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverStatus">
+      <http:operation location="/ChangeDriverStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverWorkStatus">
+      <http:operation location="/ChangeDriverWorkStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverStatus">
+      <http:operation location="/DriverStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignDriverToJob">
+      <http:operation location="/assignDriverToJob" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerDriver">
+      <http:operation location="/registerDriver" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverLogin">
+      <http:operation location="/DriverLogin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DriverCLogin">
+      <http:operation location="/DriverCLogin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNotifcationToDriver">
+      <http:operation location="/SendNotifcationToDriver" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDriverToken">
+      <http:operation location="/UpdateDriverToken" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSetting">
+      <http:operation location="/UpdateSetting" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall">
+      <http:operation location="/AcceptCall" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall2">
+      <http:operation location="/AcceptCall2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptCall3">
+      <http:operation location="/AcceptCall3" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDriversNearMe">
+      <http:operation location="/GetDriversNearMe" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessgaeToDrivers">
+      <http:operation location="/SendMessgaeToDrivers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendJobToDriver">
+      <http:operation location="/SendJobToDriver" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobStatus">
+      <http:operation location="/UpdateJobStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobExtraValues">
+      <http:operation location="/UpdateJobExtraValues" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallAnotherWebSevice">
+      <http:operation location="/CallAnotherWebSevice" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LimoAllOver">
+    <wsdl:port name="LimoAllOverSoap" binding="tns:LimoAllOverSoap">
+      <soap:address location="http://limoallover.net/Limoallover.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LimoAllOverSoap12" binding="tns:LimoAllOverSoap12">
+      <soap12:address location="http://limoallover.net/Limoallover.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LimoAllOverHttpGet" binding="tns:LimoAllOverHttpGet">
+      <http:address location="http://limoallover.net/Limoallover.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LimoAllOverHttpPost" binding="tns:LimoAllOverHttpPost">
+      <http:address location="http://limoallover.net/Limoallover.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

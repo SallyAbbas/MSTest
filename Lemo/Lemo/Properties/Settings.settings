@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Lemo.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Lemo_Mylimobiz_ApiService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://book.mylimobiz.com/api/apiservice.asmx</Value>
+    </Setting>
+    <Setting Name="Lemo_Service1_LimoAllOver" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://limoallover.net/Limoallover.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
